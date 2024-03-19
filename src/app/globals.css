@@ -4,35 +4,35 @@
 
 @layer base {
     :root {
-        --background: 0 0% 100%;
-        --foreground: 222.2 84% 4.9%;
+        --background: 0 0% 100%;                    /* #ffffff */
+        --foreground: 222.2 84% 4.9%;               /* #020817 */
 
-        --card: 0 0% 100%;
-        --card-foreground: 222.2 84% 4.9%;
+        --card: 0 0% 100%;                          /* #ffffff */
+        --card-foreground: 222.2 84% 4.9%;          /* 020817 */
 
-        --popover: 0 0% 100%;
-        --popover-foreground: 222.2 84% 4.9%;
+        --popover: 0 0% 100%;                       /* #ffffff */
+        --popover-foreground: 222.2 84% 4.9%;       /* 020817 */
 
-        --primary: 222.2 47.4% 11.2%;
-        --primary-foreground: 210 40% 98%;
+        --primary: 222.2 47.4% 11.2%;               /* #0f172a */
+        --primary-foreground: 210 40% 98%;          /* f8fafc */
 
-        --secondary: 210 40% 96.1%;
-        --secondary-foreground: 222.2 47.4% 11.2%;
+        --secondary: 210 40% 96.1%;                 /* #f1f5f9 */
+        --secondary-foreground: 222.2 47.4% 11.2%;  /* #0f712a */
 
-        --muted: 210 40% 96.1%;
-        --muted-foreground: 215.4 16.3% 46.9%;
+        --muted: 210 40% 96.1%;                     /* #f1f5f9 */
+        --muted-foreground: 215.4 16.3% 46.9%;      /* #64748b */
 
-        --accent: 210 40% 96.1%;
-        --accent-foreground: 222.2 47.4% 11.2%;
+        --accent: 210 40% 96.1%;                    /* #f1f5f9 */
+        --accent-foreground: 222.2 47.4% 11.2%;     /* #0f712a */
 
-        --destructive: 0 84.2% 60.2%;
-        --destructive-foreground: 210 40% 98%;
+        --destructive: 0 84.2% 60.2%;               /* #ef4444 */
+        --destructive-foreground: 210 40% 98%;      /* #f8fafc */
 
-        --border: 214.3 31.8% 91.4%;
-        --input: 214.3 31.8% 91.4%;
-        --ring: 222.2 84% 4.9%;
+        --border: 214.3 31.8% 91.4%;                /* #e2e8f0 */
+        --input: 214.3 31.8% 91.4%;                 /* #e2e8f0 */
+        --ring: 222.2 84% 4.9%;                     /* #020817 */
 
-        --radius: 0.5rem;
+        --radius: 0.5rem;                           /* 8px */
     }
 
     .dark {

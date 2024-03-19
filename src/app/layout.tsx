@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import Aleo from "next/font/local";
 import "./globals.css";
+import React from "react";
 
-const inter = Inter({ subsets: ["latin"] });
+const aleo = Aleo({
+    src: '../../public/fonts/Aleo/Aleo.ttf',
+    variable: '--font-aleo',
+});
 
 export const metadata: Metadata = {
     title: "Miraz",
@@ -16,7 +20,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={inter.className}>{children}</body>
+            <body className={aleo.className}>{children}</body>
         </html>
     );
 }

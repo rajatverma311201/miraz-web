@@ -1,4 +1,5 @@
 import { db } from "@/lib/db";
+import React from "react";
 
 interface AdminHomePageProps {}
 
