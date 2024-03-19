@@ -1,0 +1,11 @@
+.navbar {
+	@apply w-full text-slate-50 m-0 pt-5 pb-5 flex flex-col flex-nowrap items-center
+}
+
+.navLinks {
+	@apply w-full flex flex-col flex-nowrap justify-center content-center
+}
+
+.navLink {
+	@apply font-semibold text-center rounded-sm pt-2 pb-2 ml-5 mr-5 mt-2 mb-2 transition-all hover:bg-slate-600/[0.5]
+}

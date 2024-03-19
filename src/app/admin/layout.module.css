@@ -3,13 +3,13 @@
 }
 
 .navContainer {
-	@apply w-24 min-h-screen bg-amber-400
+	@apply w-56 min-h-screen bg-slate-500 m-0 p-0
 }
 
 .bodyContainer {
-	@apply w-full min-h-fit flex flex-col bg-teal-200 relative
+	@apply w-full min-h-fit flex flex-col bg-slate-100 relative
 }
 
 .footerContainer {
-  @apply w-full min-h-24 bg-red-400 absolute bottom-0
+  @apply w-full min-h-24 bg-slate-300 absolute bottom-0
 }
