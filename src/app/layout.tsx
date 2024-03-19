@@ -14,13 +14,13 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-    children,
-}: Readonly<{
+                                       children,
+                                   }: Readonly<{
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
-            <body className={aleo.className}>{children}</body>
-        </html>
+      <html lang="en">
+      <body className={aleo.className}>{children}</body>
+      </html>
     );
 }

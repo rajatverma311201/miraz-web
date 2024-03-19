@@ -1,0 +1,15 @@
+.layout {
+	@apply w-screen min-h-screen bg-background flex flex-row
+}
+
+.navContainer {
+	@apply w-24 min-h-screen bg-amber-400
+}
+
+.bodyContainer {
+	@apply w-full min-h-fit flex flex-col bg-teal-200 relative
+}
+
+.footerContainer {
+  @apply w-full min-h-24 bg-red-400 absolute bottom-0
+}
