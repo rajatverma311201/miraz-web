@@ -14,7 +14,70 @@ datasource db {
 }
 
 model Test {
-  id        String  @id @default(uuid()) @map("_id")
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
   title     String
   completed Boolean
+}
+
+model Event {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  title String
+}
+
+model MirazTeamMember {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  email     String
+  role      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model FAQ {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  question  String
+  answer    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Sponsor {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  image     String
+  link      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Timeline {
+  id    String   @id @default(auto()) @map("_id") @db.ObjectId
+  date  DateTime
+  title String
+}
+
+model Keytalk {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  title String
+  time  String
+
+  speakers Speaker[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Speaker {
+  id            String @id @default(auto()) @map("_id") @db.ObjectId
+  name          String
+  image         String
+  qualification String
+  bio           String
+  link          String
+
+  keytalkId String?  @db.ObjectId
+  keytalk   Keytalk? @relation(fields: [keytalkId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
