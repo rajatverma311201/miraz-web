@@ -4,6 +4,9 @@ interface AdminLayoutProps {
     children: React.ReactNode;
 }
 
+export const revalidate = 0;
+export const dynamic = "force-dynamic";
+
 const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
     return (
         <>

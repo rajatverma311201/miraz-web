@@ -8,6 +8,7 @@ interface FaqsAdminPageProps {}
 
 const FaqsAdminPage: React.FC<FaqsAdminPageProps> = async ({}) => {
     const faqs = await db.faq.findMany();
+
     return (
         <div className="flex w-lvw flex-col items-center gap-5 overflow-x-hidden">
             <Button asChild>
