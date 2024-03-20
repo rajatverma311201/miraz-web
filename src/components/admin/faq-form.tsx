@@ -57,6 +57,7 @@ export const FaqForm: React.FC<FaqFormProps> = ({ faq, faqId }) => {
             toast.success(`FAQ ${faqId ? "Updated" : "Added"} Successfully`, {
                 id: toastId,
             });
+            router.refresh();
             router.back();
         } catch (error) {
             toast.error(`FAQ ${faqId ? "update" : "add"} failed`, {

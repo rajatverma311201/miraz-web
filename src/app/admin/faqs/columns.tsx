@@ -1,7 +1,7 @@
 "use client";
 
 import { ColumnDef } from "@tanstack/react-table";
-import { MoreHorizontal } from "lucide-react";
+import { MoreHorizontal, Pencil, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
     DropdownMenu,
@@ -10,6 +10,8 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+
+import Link from "next/link";
 
 export type Faq = {
     id: string;
@@ -20,10 +22,6 @@ export type Faq = {
 };
 
 export const faqColumns: ColumnDef<Faq>[] = [
-    {
-        accessorKey: "srno",
-        header: "Sr no",
-    },
     {
         accessorKey: "question",
         header: "Question",
@@ -47,12 +45,14 @@ export const faqColumns: ColumnDef<Faq>[] = [
                         </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
-                        <DropdownMenuItem onClick={() => {}}>
-                            Edit
+                        <DropdownMenuItem asChild className="cursor-pointer">
+                            <Link href={`/admin/faqs/${id}`}>
+                                <Pencil size={15} className="mr-2" /> Edit
+                            </Link>
                         </DropdownMenuItem>
                         <DropdownMenuSeparator />
-                        <DropdownMenuItem className="hover:text-red-200x text-red-600 hover:bg-red-600/70">
-                            delete
+                        <DropdownMenuItem className="hover:text-red-200x cursor-pointer text-red-600 hover:bg-red-600/70">
+                            <Trash2 size={15} className="mr-2" /> Delete
                         </DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
