@@ -1,6 +1,8 @@
+import { DataTable } from "@/components/data-table";
 import { Button } from "@/components/ui/button";
 import { db } from "@/lib/db";
 import Link from "next/link";
+import { faqColumns } from "./columns";
 
 interface FaqsAdminPageProps {}
 
@@ -11,6 +13,9 @@ const FaqsAdminPage: React.FC<FaqsAdminPageProps> = async ({}) => {
             <Button asChild>
                 <Link href="/admin/faqs/add">Add a new FAQ</Link>
             </Button>
+
+            <DataTable columns={faqColumns} data={faqs} />
+
             <ul className="flex w-4/5 flex-col items-center gap-5">
                 {/* {faqs.map((faq) => {
                     const { question, answer, id } = faq;

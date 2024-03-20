@@ -19,7 +19,7 @@ export type Faq = {
     updatedAt: Date;
 };
 
-export const columns: ColumnDef<Faq>[] = [
+export const faqColumns: ColumnDef<Faq>[] = [
     {
         accessorKey: "srno",
         header: "Sr no",
@@ -36,6 +36,8 @@ export const columns: ColumnDef<Faq>[] = [
         id: "actions",
         cell: ({ row }) => {
             const faq = row.original;
+            const { id } = faq;
+
             return (
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
@@ -45,11 +47,7 @@ export const columns: ColumnDef<Faq>[] = [
                         </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
-                        <DropdownMenuItem
-                            onClick={() =>
-                                navigator.clipboard.writeText(faq.id)
-                            }
-                        >
+                        <DropdownMenuItem onClick={() => {}}>
                             Edit
                         </DropdownMenuItem>
                         <DropdownMenuSeparator />
