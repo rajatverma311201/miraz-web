@@ -1,8 +1,12 @@
 import { Nav } from "@/components/nav";
+import Link from "next/link";
 
 interface EventsAdminPageProps {}
 
 const EventsAdminPage: React.FC<EventsAdminPageProps> = () => {
+    const onClickHandler = () => {
+        console.log("Add Events Button Clicked");
+    }
     const events = [
         {name: "Hackathon", id: 1},
         {name: "Singin Event", id: 4},
@@ -30,6 +34,7 @@ const EventsAdminPage: React.FC<EventsAdminPageProps> = () => {
                     );
                 })}
             </ul>
+            <Link className="font-semibold bg-slate-600 p-2 rounded-lg" href="events/add">Add Events</Link>
         </div>
     );
 };
