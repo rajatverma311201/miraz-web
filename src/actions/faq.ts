@@ -23,3 +23,11 @@ export const updateFaq = async (id: string, data: FaqI) => {
         },
     });
 };
+
+export const deleteFaq = async (id: string) => {
+    await db.faq.delete({
+        where: {
+            id,
+        },
+    });
+};

@@ -2,7 +2,7 @@ import { DataTable } from "@/components/data-table";
 import { Button } from "@/components/ui/button";
 import { db } from "@/lib/db";
 import Link from "next/link";
-import { faqColumns } from "./columns";
+import { faqColumns } from "./faq-columns";
 
 interface FaqsAdminPageProps {}
 
