@@ -6,41 +6,46 @@ import { Button } from "@/components/ui/button";
 
 import Link from "next/link";
 import { DeleteAlertDialog } from "@/components/delete-alert-dialog";
-import { deleteFaq } from "@/actions/faq";
+import { deleteSponsor } from "@/actions/sponsor";
 import { toast } from "sonner";
 
-export type Faq = {
+export type Sponsor = {
     id: string;
-    question: string;
-    answer: string;
+    name: string;
+    image: string;
+    link: string;
     createdAt: Date;
     updatedAt: Date;
 };
 
-export const faqColumns: ColumnDef<Faq>[] = [
+export const sponsorColumns: ColumnDef<Sponsor>[] = [
     {
-        accessorKey: "question",
-        header: "Question",
+        accessorKey: "image",
+        header: "Image",
     },
     {
-        accessorKey: "answer",
-        header: "Answer",
+        accessorKey: "name",
+        header: "Name",
     },
     {
         id: "actions",
         cell: ({ row }) => {
-            const faq = row.original;
-            const { id } = faq;
+            const sponsor = row.original;
+            const { id } = sponsor;
 
             const handleDeleteAction = async (onSuccess?: () => void) => {
-                const toastId = toast.loading("Deleting FAQ, please wait...");
+                const toastId = toast.loading(
+                    "Removing sponsor, Please Wait...",
+                );
                 try {
-                    await deleteFaq(id);
-                    toast.success("FAQ deleted successfully", { id: toastId });
+                    await deleteSponsor(id);
+                    toast.success("Sponsor removed successfully", {
+                        id: toastId,
+                    });
                     onSuccess?.();
                 } catch (error) {
                     console.error(error);
-                    toast.error("Failed to delete FAQ", { id: toastId });
+                    toast.error("Failed to remove sponsor", { id: toastId });
                 }
             };
 
@@ -48,7 +53,7 @@ export const faqColumns: ColumnDef<Faq>[] = [
                 <>
                     <div className="flex gap-2">
                         <Button asChild size={"iconSm"} variant={"outline"}>
-                            <Link href={`/admin/faqs/${id}`}>
+                            <Link href={`/admin/sponsors/${id}`}>
                                 <Pencil size={16} />
                             </Link>
                         </Button>

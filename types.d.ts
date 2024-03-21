@@ -11,4 +11,10 @@ declare module "types" {
         question: string;
         answer: string;
     }
+
+    export interface SponsorI {
+        name: string;
+        image: string;
+        link: string;
+    }
 }

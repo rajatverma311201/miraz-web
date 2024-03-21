@@ -18,49 +18,59 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 import { Textarea } from "@/components/ui/textarea";
-import { FaqFormSchema } from "@/zodSchemas";
-import { addFaq, updateFaq } from "@/actions/faq";
+import { SponsorFormSchema } from "@/zodSchemas";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { Loader2 } from "lucide-react";
+import React from "react";
+import { addSponsor, updateSponsor } from "@/actions/sponsor";
+import { Input } from "@/components/ui/input";
 
-interface FaqFormProps {
-    faq?: {
-        question: string;
-        answer: string;
+interface SponsorFormProps {
+    sponsor?: {
+        name: string;
+        image: string;
+        link: string;
     };
-    faqId?: string;
+    sponsorId?: string;
 }
 
-export const FaqForm: React.FC<FaqFormProps> = ({ faq, faqId }) => {
+export const SponsorForm: React.FC<SponsorFormProps> = ({
+    sponsor,
+    sponsorId,
+}) => {
     const router = useRouter();
 
-    const form = useForm<z.infer<typeof FaqFormSchema>>({
-        resolver: zodResolver(FaqFormSchema),
+    const form = useForm<z.infer<typeof SponsorFormSchema>>({
+        resolver: zodResolver(SponsorFormSchema),
         defaultValues: {
-            question: faqId ? faq?.question : "",
-            answer: faqId ? faq?.answer : "",
+            name: sponsorId ? sponsor?.name : "",
+            image: sponsorId ? sponsor?.image : "",
+            link: sponsorId ? sponsor?.link : "",
         },
     });
 
-    const onSubmit = async (values: z.infer<typeof FaqFormSchema>) => {
+    const onSubmit = async (values: z.infer<typeof SponsorFormSchema>) => {
         const toastId = toast.loading(
-            `${faqId ? "Updating" : "Adding"} FAQ, Please Wait...`,
+            `${sponsorId ? "Updating" : "Adding"} Sponsor, Please Wait...`,
         );
 
         try {
-            if (faqId) {
-                await updateFaq(faqId, values);
+            if (sponsorId) {
+                await updateSponsor(sponsorId, values);
             } else {
-                await addFaq(values);
+                await addSponsor(values);
             }
-            toast.success(`FAQ ${faqId ? "Updated" : "Added"} Successfully`, {
-                id: toastId,
-            });
+            toast.success(
+                `Sponsor ${sponsorId ? "Updated" : "Added"} Successfully`,
+                {
+                    id: toastId,
+                },
+            );
             router.refresh();
             router.back();
         } catch (error) {
-            toast.error(`FAQ ${faqId ? "update" : "add"} failed`, {
+            toast.error(`Sponsor ${sponsorId ? "update" : "add"} failed`, {
                 id: toastId,
             });
         }
@@ -71,7 +81,7 @@ export const FaqForm: React.FC<FaqFormProps> = ({ faq, faqId }) => {
             <Card className="mx-auto max-w-[500px]">
                 <CardHeader>
                     <CardTitle>
-                        {faqId ? "Update FAQ" : "Add a new FAQ"}
+                        {sponsorId ? "Update Sponsor" : "Add a new Sponsor"}
                     </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -82,13 +92,13 @@ export const FaqForm: React.FC<FaqFormProps> = ({ faq, faqId }) => {
                         >
                             <FormField
                                 control={form.control}
-                                name="question"
+                                name="name"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel>Question</FormLabel>
+                                        <FormLabel>Name</FormLabel>
                                         <FormControl>
-                                            <Textarea
-                                                placeholder="Enter the question"
+                                            <Input
+                                                placeholder="Enter sponsor's name"
                                                 {...field}
                                             />
                                         </FormControl>
@@ -98,13 +108,29 @@ export const FaqForm: React.FC<FaqFormProps> = ({ faq, faqId }) => {
                             />
                             <FormField
                                 control={form.control}
-                                name="answer"
+                                name="image"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel>Answer</FormLabel>
+                                        <FormLabel>Image</FormLabel>
                                         <FormControl>
                                             <Textarea
-                                                placeholder="Enter the answer"
+                                                placeholder="Enter sponsor image"
+                                                {...field}
+                                            />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                            <FormField
+                                control={form.control}
+                                name="link"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>Link</FormLabel>
+                                        <FormControl>
+                                            <Textarea
+                                                placeholder="Enter sponsor link"
                                                 {...field}
                                             />
                                         </FormControl>

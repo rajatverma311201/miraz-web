@@ -1,11 +1,9 @@
-import React from 'react'
+"use client";
 
-const page = () => {
-  return (
-    <div>
-      add Events
-    </div>
-  )
-}
+import { SponsorForm } from "@/components/admin/sponsors-form";
 
-export default page
+const FaqAddPage = () => {
+    return <SponsorForm />;
+};
+
+export default FaqAddPage;
