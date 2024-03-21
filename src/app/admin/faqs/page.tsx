@@ -14,7 +14,6 @@ const FaqsAdminPage: React.FC<FaqsAdminPageProps> = async ({}) => {
             <Button asChild>
                 <Link href="/admin/faqs/add">Add a new FAQ</Link>
             </Button>
-
             <DataTable columns={faqColumns} data={faqs} />
         </div>
     );

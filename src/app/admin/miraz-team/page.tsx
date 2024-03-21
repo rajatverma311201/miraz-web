@@ -4,27 +4,29 @@ interface MirazTeamAdminPageProps {}
 
 const MirazTeamAdminPage: React.FC<MirazTeamAdminPageProps> = ({}) => {
     const mirazTeamMenbers = [
-        {name: "Hackathon",email: "123@gmail.com", role: "volunteer"},
-        {name: "Singin Event",email: "123@gmail.com", role: "volunteer"},
-        {name: "Fashion Show",email: "123@gmail.com", role: "volunteer"},
-        {name: "Robo Fight", email: "123@gmail.com", role: "volunteer"},
-        {name: "Cricket Match",email: "123@gmail.com", role: "volunteer"},
-        {name: "Tug of war",email: "123@gmail.com", role: "volunteer"},
-        {name: "Speaker Talk", email: "123@gmail.com", role: "volunteer"},
+        { name: "Hackathon", email: "123@gmail.com", role: "volunteer" },
+        { name: "Singin Event", email: "123@gmail.com", role: "volunteer" },
+        { name: "Fashion Show", email: "123@gmail.com", role: "volunteer" },
+        { name: "Robo Fight", email: "123@gmail.com", role: "volunteer" },
+        { name: "Cricket Match", email: "123@gmail.com", role: "volunteer" },
+        { name: "Tug of war", email: "123@gmail.com", role: "volunteer" },
+        { name: "Speaker Talk", email: "123@gmail.com", role: "volunteer" },
     ];
     return (
-        <div className="flex flex-col items-center w-lvw gap-5">
-            <Nav />
-            <ul className="w-4/5 flex flex-col items-center gap-5">
-                <li className="w-full flex justify-between items-center px-3 py-3 h-5 border-4 border-black border-solid">
+        <div className="flex w-lvw flex-col items-center gap-5">
+            <ul className="flex w-4/5 flex-col items-center gap-5">
+                <li className="flex h-5 w-full items-center justify-between border-4 border-solid border-black px-3 py-3">
                     <h2 className="font-bold">Name</h2>
                     <p className="font-bold">Email</p>
                     <p className="font-bold">Role</p>
                 </li>
-                {mirazTeamMenbers.map(mirazTeamMenber => {
+                {mirazTeamMenbers.map((mirazTeamMenber) => {
                     const { name, email, role } = mirazTeamMenber;
                     return (
-                        <li key={email} className="w-full flex justify-between items-center px-3 py-3 h-5 border-b-2 hover:border-b-4 border-x-4 border-black border-solid">
+                        <li
+                            key={email}
+                            className="flex h-5 w-full items-center justify-between border-x-4 border-b-2 border-solid border-black px-3 py-3 hover:border-b-4"
+                        >
                             <p>{name}</p>
                             <p>{email}</p>
                             <p>{role}</p>
@@ -33,6 +35,6 @@ const MirazTeamAdminPage: React.FC<MirazTeamAdminPageProps> = ({}) => {
                 })}
             </ul>
         </div>
-    );;
+    );
 };
 export default MirazTeamAdminPage;

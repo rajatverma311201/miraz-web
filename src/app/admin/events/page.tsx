@@ -15,6 +15,7 @@ const EventsAdminPage: React.FC<EventsAdminPageProps> = async ({}) => {
             </Button>
 
             <DataTable columns={EventColumns} data={events} />
+       
         </div>
     );
 };
