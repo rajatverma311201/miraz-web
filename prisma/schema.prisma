@@ -68,11 +68,11 @@ model Keytalk {
 }
 
 model Speaker {
-  id            String @id @default(auto()) @map("_id") @db.ObjectId
+  id            String  @id @default(auto()) @map("_id") @db.ObjectId
   name          String
   image         String
   qualification String
-  bio           String
+  bio           String?
   link          String
 
   keytalkId String?  @db.ObjectId
