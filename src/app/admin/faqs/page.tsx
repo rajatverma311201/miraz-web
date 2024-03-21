@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { db } from "@/lib/db";
 import Link from "next/link";
 import { faqColumns } from "./faq-columns";
+import React from "react";
 
 interface FaqsAdminPageProps {}
 
