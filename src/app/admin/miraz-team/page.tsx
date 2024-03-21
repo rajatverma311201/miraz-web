@@ -1,39 +1,21 @@
-import { Nav } from "@/components/nav";
+import { DataTable } from "@/components/data-table";
+import { Button } from "@/components/ui/button";
+import { db } from "@/lib/db";
+import Link from "next/link";
+import { teamColumns } from "./team-columns";
+import React from "react";
 
 interface MirazTeamAdminPageProps {}
 
-const MirazTeamAdminPage: React.FC<MirazTeamAdminPageProps> = ({}) => {
-    const mirazTeamMenbers = [
-        { name: "Hackathon", email: "123@gmail.com", role: "volunteer" },
-        { name: "Singin Event", email: "123@gmail.com", role: "volunteer" },
-        { name: "Fashion Show", email: "123@gmail.com", role: "volunteer" },
-        { name: "Robo Fight", email: "123@gmail.com", role: "volunteer" },
-        { name: "Cricket Match", email: "123@gmail.com", role: "volunteer" },
-        { name: "Tug of war", email: "123@gmail.com", role: "volunteer" },
-        { name: "Speaker Talk", email: "123@gmail.com", role: "volunteer" },
-    ];
+const MirazTeamAdminPage: React.FC<MirazTeamAdminPageProps> =async ({}) => {
+    const team_member = await db.mirazTeamMember.findMany();
+
     return (
-        <div className="flex w-lvw flex-col items-center gap-5">
-            <ul className="flex w-4/5 flex-col items-center gap-5">
-                <li className="flex h-5 w-full items-center justify-between border-4 border-solid border-black px-3 py-3">
-                    <h2 className="font-bold">Name</h2>
-                    <p className="font-bold">Email</p>
-                    <p className="font-bold">Role</p>
-                </li>
-                {mirazTeamMenbers.map((mirazTeamMenber) => {
-                    const { name, email, role } = mirazTeamMenber;
-                    return (
-                        <li
-                            key={email}
-                            className="flex h-5 w-full items-center justify-between border-x-4 border-b-2 border-solid border-black px-3 py-3 hover:border-b-4"
-                        >
-                            <p>{name}</p>
-                            <p>{email}</p>
-                            <p>{role}</p>
-                        </li>
-                    );
-                })}
-            </ul>
+        <div className="flex w-lvw flex-col items-center gap-5 overflow-x-hidden">
+        <Button asChild>
+            <Link href="/admin/miraz-team/add">Add new Team Member</Link>
+        </Button>
+        <DataTable columns={teamColumns} data={team_member} />
         </div>
     );
 };

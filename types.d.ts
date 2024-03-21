@@ -17,4 +17,10 @@ declare module "types" {
         image: string;
         link: string;
     }
+
+    export interface MirazTeamMemberI{
+        name: string;
+        email: string;
+        role: string;
+    }
 }
