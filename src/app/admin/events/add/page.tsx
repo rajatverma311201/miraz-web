@@ -1,11 +1,9 @@
-import React from 'react'
+"use client"
 
-const page = () => {
-  return (
-    <div>
-      add Events
-    </div>
-  )
+import { EventForm } from "@/components/admin/event-form"
+
+const EventFormPage = () => {
+  return <EventForm />
 }
 
-export default page
+export default EventFormPage

@@ -29,3 +29,7 @@ export const TeamMemberFormSchema = z.object({
         message: "role is required",
     }),
 });
+
+export const EventFormSchema = z.object({
+    title: z.string()
+});
