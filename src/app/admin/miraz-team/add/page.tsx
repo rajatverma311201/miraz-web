@@ -1,10 +1,10 @@
-import React from 'react'
+"use client";
+
+import { TeamMemberForm } from "@/components/admin/teammember-form";
 
 const page = () => {
   return (
-    <div>
-      add Events
-    </div>
+       <TeamMemberForm />
   )
 }
 
