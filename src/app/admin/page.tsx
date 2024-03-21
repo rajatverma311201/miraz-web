@@ -1,6 +1,12 @@
 // import { db } from "@/lib/db";
-import { Nav } from "@/components/nav";
 import Link from "next/link";
+import {
+    Card,
+    CardDescription,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card";
+import React from "react";
 
 interface AdminHomePageProps {}
 
@@ -11,7 +17,7 @@ const AdminHomePage: React.FC<AdminHomePageProps> = async ({}) => {
         { name: "FAQ's", entries: 4, link: "admin/faqs" },
         { name: "Key Talks", entries: 8, link: "admin/keytalks" },
         { name: "Miraz Team", entries: 18, link: "admin/miraz-team" },
-        { name: "Sponsers", entries: 2, link: "admin/sponsors" },
+        { name: "Sponsors", entries: 2, link: "admin/sponsors" },
         { name: "Timeline", entries: 3, link: "admin/timeline" },
         { name: "Speakers", entries: 10, link: "admin/speakers" },
     ];
@@ -29,24 +35,29 @@ const AdminHomePage: React.FC<AdminHomePageProps> = async ({}) => {
                     </li>
                 ))}
                 </ul> */}
-            <ul className="flex w-4/5 flex-col items-center gap-5">
-                <li className="px-30 flex h-5 w-full items-center justify-between border-4 border-solid border-black px-3 py-3">
-                    <h2 className="font-bold">Models</h2>
-                    <p className="font-bold">Number of Entries</p>
-                </li>
+            <div className="flex w-4/5 flex-col items-center gap-5">
                 {models.map((model) => {
                     const { name, entries, link } = model;
                     return (
-                        <li
-                            key={name}
-                            className="flex h-5 w-full items-center justify-between border-x-4 border-b-2 border-solid border-black px-3 py-5 hover:border-b-4"
-                        >
-                            <Link href={link}>{name}</Link>
-                            <p>{entries}</p>
-                        </li>
+                        <>
+                            <Link href={link} className={"group w-full"}>
+                                <Card key={name}>
+                                    <CardHeader className="flex flex-row items-center justify-between">
+                                        <CardTitle className="hover:underline">
+                                            {name}
+                                        </CardTitle>
+                                        <CardDescription>
+                                            {entries === 1
+                                                ? entries + " entry"
+                                                : entries + " entries"}
+                                        </CardDescription>
+                                    </CardHeader>
+                                </Card>
+                            </Link>
+                        </>
                     );
                 })}
-            </ul>
+            </div>
         </div>
     );
 };
