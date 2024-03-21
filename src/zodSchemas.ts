@@ -17,3 +17,7 @@ export const SponsorFormSchema = z.object({
         message: "link too short",
     }),
 });
+
+export const EventFormSchema = z.object({
+    title: z.string()
+});
