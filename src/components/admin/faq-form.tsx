@@ -92,9 +92,6 @@ export const FaqForm: React.FC<FaqFormProps> = ({ faq, faqId }) => {
                                                 {...field}
                                             />
                                         </FormControl>
-                                        <FormDescription>
-                                            Faq question
-                                        </FormDescription>
                                         <FormMessage />
                                     </FormItem>
                                 )}
@@ -107,13 +104,10 @@ export const FaqForm: React.FC<FaqFormProps> = ({ faq, faqId }) => {
                                         <FormLabel>Answer</FormLabel>
                                         <FormControl>
                                             <Textarea
-                                                placeholder="Enter the question"
+                                                placeholder="Enter the answer"
                                                 {...field}
                                             />
                                         </FormControl>
-                                        <FormDescription>
-                                            Faq answer
-                                        </FormDescription>
                                         <FormMessage />
                                     </FormItem>
                                 )}
