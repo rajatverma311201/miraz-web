@@ -11,7 +11,7 @@ const EventsAdminPage: React.FC<EventsAdminPageProps> = async ({}) => {
     return (
         <div className="flex w-lvw flex-col items-center gap-5 overflow-x-hidden">
             <Button asChild>
-                <Link href="/admin/faqs/add">Add a new Event</Link>
+                <Link href="/admin/events/add">Add a new Event</Link>
             </Button>
 
             <DataTable columns={EventColumns} data={events} />
