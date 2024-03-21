@@ -33,11 +33,11 @@ export const EventColumns: ColumnDef<Event>[] = [
                 const toastId = toast.loading("Deleting Event, Please Wait...");
                 try {
                     await deleteEvent(id);
-                    toast.success("FAQ Deleted Successfully", { id: toastId });
+                    toast.success("Event Deleted Successfully", { id: toastId });
                     onSuccess?.();
                 } catch (error) {
                     console.error(error);
-                    toast.error("Failed to delete FAQ", { id: toastId });
+                    toast.error("Failed to delete Event", { id: toastId });
                 }
             };
 
