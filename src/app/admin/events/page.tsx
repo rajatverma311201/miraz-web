@@ -18,7 +18,6 @@ const EventsAdminPage: React.FC<EventsAdminPageProps> = () => {
     ];
     return (
         <div className="flex w-lvw flex-col items-center gap-5">
-            <Nav />
             <ul className="flex w-4/5 flex-col items-center gap-5">
                 <li className="flex h-5 w-full items-center justify-between border-4 border-solid border-black px-3 py-3">
                     <h2 className="font-bold">Event Name</h2>
