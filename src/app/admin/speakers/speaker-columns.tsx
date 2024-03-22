@@ -16,7 +16,7 @@ export type Speaker = {
     qualification: string;
     bio: string;
     link: string;
-    keytalkId?: string;
+    keytalkId: string;
     createdAt: Date;
     updatedAt: Date;
 };
@@ -44,7 +44,7 @@ export const speakerColumns: ColumnDef<Speaker>[] = [
     },
     {
         accessorKey: "keytalkId",
-        header: "KeytalkId",
+        header: "Keytalk Title",
     },
     {
         id: "actions",
