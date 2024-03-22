@@ -25,7 +25,6 @@ import {
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-import { Textarea } from "@/components/ui/textarea";
 import { SpeakerFormSchema } from "@/zodSchemas";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
@@ -44,11 +43,16 @@ interface SpeakerFormProps {
         keytalkId: string;
     };
     speakerId?: string;
+    keytalks?: {
+        id: string,
+        title: string,
+    }[];
 }
 
 export const SpeakerForm: React.FC<SpeakerFormProps> = ({
     speaker,
     speakerId,
+    keytalks
 }) => {
     const router = useRouter();
 
@@ -191,11 +195,18 @@ export const SpeakerForm: React.FC<SpeakerFormProps> = ({
                                     <FormItem>
                                         <FormLabel>Key Talk</FormLabel>
                                         <FormControl>
-                                            
-                                            <Input
-                                                placeholder="Enter Speaker's Key-talk"
-                                                {...field}
-                                            />
+                                            <Select onValueChange={field.onChange} defaultValue={speakerId ? speaker?.keytalkId ? speaker?.keytalkId : undefined : undefined}>
+                                                <SelectTrigger>
+                                                <SelectValue placeholder="Select an Key Talk" />
+                                                </SelectTrigger>
+                                                <SelectContent>
+                                                {keytalks?.map((keytalk) => (
+                                                    <SelectItem key={keytalk.id} value={keytalk.id}>
+                                                    {keytalk.title}
+                                                    </SelectItem>
+                                                ))}
+                                                </SelectContent>
+                                            </Select>
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
