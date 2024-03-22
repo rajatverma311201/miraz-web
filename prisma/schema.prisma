@@ -59,7 +59,7 @@ model Timeline {
 model Keytalk {
   id    String @id @default(auto()) @map("_id") @db.ObjectId
   title String
-  time  String
+  time  DateTime
 
   speakers Speaker[]
 
@@ -76,7 +76,7 @@ model Speaker {
   link          String
 
   keytalkId String?  @db.ObjectId
-  keytalk   Keytalk? @relation(fields: [keytalkId], references: [id])
+  keytalk   Keytalk? @relation(fields: [keytalkId], references: [id],onDelete: Cascade)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
