@@ -23,4 +23,19 @@ declare module "types" {
         email: string;
         role: string;
     }
+
+    export interface KeyTalkI{
+        title: string;
+        time: string;
+    }
+    
+    export interface SpeakerI{
+        name: string;
+        image: string;
+        link: string;
+        qualification: string;
+        bio: string;
+        // keytalkId?: string;
+    }
+    
 }
