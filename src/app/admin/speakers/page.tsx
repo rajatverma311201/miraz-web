@@ -1,40 +1,44 @@
-import { Nav } from "@/components/nav";
+import { DataTable } from "@/components/data-table";
+import { Button } from "@/components/ui/button";
+import { db } from "@/lib/db";
 import Link from "next/link";
-
+import { speakerColumns } from "./speaker-columns";
+import React from "react";
+import { Speaker } from "./speaker-columns";
 interface SpeakerAdminPageProps {}
 
-const SpeakerAdminPage: React.FC<SpeakerAdminPageProps> = ({}) => {
-    const speakers = [
-        { name: "Hackathon", id: 1 },
-        { name: "Singin Event", id: 4 },
-        { name: "Fashion Show", id: 8 },
-        { name: "Robo Fight", id: 18 },
-        { name: "Cricket Match", id: 2 },
-        { name: "Tug of war", id: 3 },
-        { name: "Speaker Talk", id: 10 },
-    ];
+const assignTitles = async (speaker: Speaker[]) => {
+    for (let i = 0; i < speaker.length; i++) {
+        let {keytalkId} = speaker[i];
+        if(keytalkId === null) {speaker[i].keytalkId='None';}
+        else{
+            const keytalkTitle = await db.keytalk.findFirst({
+                where: {
+                    id: keytalkId ?? undefined
+                }
+            });
+            if(keytalkTitle !== null) {
+                speaker[i] = { ...speaker[i], keytalkId: keytalkTitle.title };
+            }
+        }
+    }
+    return speaker;
+};
+
+const SpeakerAdminPage: React.FC<SpeakerAdminPageProps> = async ({}) => {
+
+    let speaker = await db.speaker.findMany();
+
+    const updatedSpeaker = await assignTitles(speaker as Speaker[]);
+
+    // console.log("speaker",updatedSpeaker);
+
     return (
-        <div className="flex w-lvw flex-col items-center gap-5">
-            <ul className="flex w-4/5 flex-col items-center gap-5">
-                <li className="flex h-5 w-full items-center justify-between border-4 border-solid border-black px-3 py-3">
-                    <h2 className="font-bold">Name</h2>
-                    <p className="font-bold">Id</p>
-                </li>
-                {speakers.map((speaker) => {
-                    const { name, id } = speaker;
-                    return (
-                        <li key={id} className="w-full">
-                            <Link
-                                href={`/admin/speakers/${id}`}
-                                className="flex h-5 w-full items-center justify-between border-x-4 border-b-2 border-solid border-black px-3 py-3 hover:border-b-4"
-                            >
-                                <p>{name}</p>
-                                <p>{id}</p>
-                            </Link>
-                        </li>
-                    );
-                })}
-            </ul>
+        <div className="flex w-lvw flex-col items-center gap-5 overflow-x-hidden">
+            <Button asChild>
+                <Link href="/admin/speaker/add">Add new Speaker</Link>
+            </Button>
+            <DataTable columns={speakerColumns} data={updatedSpeaker as Speaker[]} />
         </div>
     );
 };
