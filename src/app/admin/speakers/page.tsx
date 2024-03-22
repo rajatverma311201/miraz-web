@@ -36,7 +36,7 @@ const SpeakerAdminPage: React.FC<SpeakerAdminPageProps> = async ({}) => {
     return (
         <div className="flex w-lvw flex-col items-center gap-5 overflow-x-hidden">
             <Button asChild>
-                <Link href="/admin/speaker/add">Add new Speaker</Link>
+                <Link href="/admin/speakers/add">Add new Speaker</Link>
             </Button>
             <DataTable columns={speakerColumns} data={updatedSpeaker as Speaker[]} />
         </div>

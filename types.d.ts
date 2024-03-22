@@ -35,7 +35,7 @@ declare module "types" {
         link: string;
         qualification: string;
         bio: string;
-        // keytalkId?: string;
+        keytalkId?: string;
     }
     
 }

@@ -72,7 +72,7 @@ export const speakerColumns: ColumnDef<Speaker>[] = [
                 <>
                     <div className="flex gap-2">
                         <Button asChild size={"iconSm"} variant={"outline"}>
-                            <Link href={`/admin/speaker/${id}`}>
+                            <Link href={`/admin/speakers/${id}`}>
                                 <Pencil size={16} />
                             </Link>
                         </Button>
