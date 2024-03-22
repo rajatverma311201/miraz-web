@@ -1,10 +1,8 @@
-import React from 'react'
+import { SpeakerForm } from '@/components/admin/speaker-form'
 
 const page = () => {
   return (
-    <div>
-      add Events
-    </div>
+    <SpeakerForm/>
   )
 }
 

@@ -33,3 +33,24 @@ export const TeamMemberFormSchema = z.object({
 export const EventFormSchema = z.object({
     title: z.string()
 });
+
+export const SpeakerFormSchema = z.object({
+    name: z.string().min(1,{
+        message: "name is required",
+    }),
+    image: z.string().min(5, {
+        message: "image is required",
+    }),
+    link: z.string().min(5, {
+        message: "link too short",
+    }),
+    bio: z.string().min(1, {
+        message: "bio is required",
+    }),
+    qualification: z.string().min(5, {
+        message: "qualification is required",
+    }),
+    keytalkId: z.string().min(5, {
+        message: "keytalkId is required",
+    }),
+});
