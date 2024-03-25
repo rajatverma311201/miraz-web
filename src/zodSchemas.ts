@@ -54,3 +54,12 @@ export const SpeakerFormSchema = z.object({
         message: "keytalkId is required",
     }),
 });
+
+export const KeytalkFormSchema = z.object({
+    title: z.string().min(1, {
+        message: "Title is Required.",
+    }),
+    time: z.string().min(1, {
+        message: "Time is Required.",
+    }),
+});

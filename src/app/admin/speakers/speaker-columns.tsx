@@ -6,8 +6,8 @@ import { Button } from "@/components/ui/button";
 
 import Link from "next/link";
 import { DeleteAlertDialog } from "@/components/delete-alert-dialog";
-import { deleteTeamMember } from "@/actions/team_member";
 import { toast } from "sonner";
+import { deleteSpeaker } from "@/actions/speaker";
 
 export type Speaker = {
     id: string;
@@ -54,17 +54,17 @@ export const speakerColumns: ColumnDef<Speaker>[] = [
 
             const handleDeleteAction = async (onSuccess?: () => void) => {
                 const toastId = toast.loading(
-                    "Removing team member, Please Wait...",
+                    "Removing Speaker, Please Wait...",
                 );
                 try {
-                    await deleteTeamMember(id);
-                    toast.success("Team member removed successfully", {
+                    await deleteSpeaker(id);
+                    toast.success("Speaker removed successfully", {
                         id: toastId,
                     });
                     onSuccess?.();
                 } catch (error) {
                     console.error(error);
-                    toast.error("Failed to remove team member", { id: toastId });
+                    toast.error("Failed to remove Speaker", { id: toastId });
                 }
             };
 

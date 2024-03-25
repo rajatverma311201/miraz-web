@@ -13,23 +13,19 @@ export type KeyTalk = {
     id: string;
     title: string;
     time: string;
-    speaker: string;
+    speaker?: string[];
     createdAt: Date;
     updatedAt: Date;
 };
 
-export const teamColumns: ColumnDef<KeyTalk>[] = [
+export const KeytalkColumns: ColumnDef<KeyTalk>[] = [
     {
-        accessorKey: "name",
-        header: "Name",
+        accessorKey: "title",
+        header: "Title",
     },
     {
-        accessorKey: "email",
-        header: "Email",
-    },
-    {
-        accessorKey: "role",
-        header: "Role",
+        accessorKey: "time",
+        header: "Time",
     },
     {
         id: "actions",
@@ -56,8 +52,9 @@ export const teamColumns: ColumnDef<KeyTalk>[] = [
             return (
                 <>
                     <div className="flex gap-2">
+                        <Link href={`/admin/keytalks/speakers/${id}`}>Show Speakers</Link>
                         <Button asChild size={"iconSm"} variant={"outline"}>
-                            <Link href={`/admin/keytalks/${id}`}>
+                            <Link href={`/admin/keytalks/speakers/${id}`}>
                                 <Pencil size={16} />
                             </Link>
                         </Button>
