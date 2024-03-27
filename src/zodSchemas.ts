@@ -9,7 +9,7 @@ export const FaqFormSchema = z.object({
 });
 
 export const SponsorFormSchema = z.object({
-    name: z.string().min(1,{
+    name: z.string().min(1, {
         message: "name is required",
     }),
     image: z.string().min(5, {
@@ -21,21 +21,51 @@ export const SponsorFormSchema = z.object({
 });
 
 export const TeamMemberFormSchema = z.object({
-    name: z.string().min(1,{
+    name: z.string().min(1, {
         message: "name is required",
     }),
-    email: z.string().min(1, {message:'Email is required'}).email({message:'Invalid email'}),
-    role: z.string().min(1,{
+    email: z
+        .string()
+        .min(1, { message: "Email is required" })
+        .email({ message: "Invalid email" }),
+    role: z.string().min(1, {
         message: "role is required",
     }),
 });
 
-export const EventFormSchema = z.object({
-    title: z.string()
+export const EventPrizeSchema = z.object({
+    first: z.number(),
+    second: z.number(),
+    third: z.number(),
 });
 
+export const EventSchema = z.object({
+    name: z.string(),
+    club: z.string(),
+    tagline: z.string(),
+    shortSummary: z.string(),
+    longSummary: z.string(),
+    image: z.string(),
+    rulebookLink: z.string(),
+    description: z.string(),
+    problemStatementLink: z.string(),
+    submissionLink: z.string(),
+    startTime: z.date(),
+    endTime: z.date(),
+    isLive: z.boolean(),
+    status: z.string(),
+    prizeWorth: z.number(),
+    teamMaxSize: z.number(),
+    teamMinSize: z.number(),
+});
+
+export const EventFormSchema = z
+    .object({})
+    .merge(EventSchema)
+    .merge(EventPrizeSchema);
+
 export const SpeakerFormSchema = z.object({
-    name: z.string().min(1,{
+    name: z.string().min(1, {
         message: "name is required",
     }),
     image: z.string().min(5, {

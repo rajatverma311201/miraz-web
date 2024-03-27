@@ -23,12 +23,12 @@ model Event {
   id                   String   @id @default(auto()) @map("_id") @db.ObjectId
   name                 String
   club                 String
-  info                 String
+  tagline              String
   shortSummary         String
   longSummary          String
+  description          String
   image                String
   rulebookLink         String
-  description          String
   problemStatementLink String
   submissionLink       String
   createdAt            DateTime @default(now())
@@ -37,6 +37,25 @@ model Event {
   endTime              DateTime
   isLive               Boolean
   status               String
+  prizeWorth           Int
+  teamMaxSize          Int
+  teamMinSize          Int
+}
+
+model Coordinator {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  name    String
+  contact String
+  eventId String @db.ObjectId
+}
+
+model Prize {
+  id     String @id @default(auto()) @map("_id") @db.ObjectId
+  first  Int
+  second Int
+  third  Int
+
+  eventId String @unique @db.ObjectId
 }
 
 model MirazTeamMember {
