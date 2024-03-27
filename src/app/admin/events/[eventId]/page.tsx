@@ -19,7 +19,44 @@ const EventUpdatePage: React.FC<EventUpdatePageProps> = async ({ params }) => {
         notFound();
     }
 
-    return <EventForm event={event} eventId={eventId} />;
+    const prizes = await db.prize.findFirst({
+        where: {
+            eventId,
+        },
+        select: {
+            first: true,
+            second: true,
+            third: true,
+        },
+    });
+
+    if (!prizes) {
+        notFound();
+    }
+
+    const coordinators = await db.coordinator.findMany({
+        where: {
+            eventId,
+        },
+    });
+
+    const finalData = {
+        ...event,
+        ...prizes,
+    };
+
+    return (
+        <>
+            <div>
+                <EventForm event={finalData} eventId={eventId} />
+
+                <h2>Coordinators</h2>
+                <ul>
+                    <li></li>
+                </ul>
+            </div>
+        </>
+    );
 };
 
 export default EventUpdatePage;
