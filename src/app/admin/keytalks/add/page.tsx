@@ -1,11 +1,9 @@
-import React from 'react'
+"use client"
 
-const page = () => {
-  return (
-    <div>
-      add Events
-    </div>
-  )
+import { KeytalkForm } from "@/components/admin/keytalk-form"
+
+const KeytalkFormPage = () => {
+  return <KeytalkForm />
 }
 
-export default page
+export default KeytalkFormPage
