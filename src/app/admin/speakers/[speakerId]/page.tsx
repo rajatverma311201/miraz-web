@@ -24,10 +24,16 @@ const EventUpdatePage: React.FC<EventUpdatePageProps> = async ({ params }) => {
         select: {
             id: true,
             title: true,
-        }
-    })
+        },
+    });
 
-    return <SpeakerForm speaker={speaker as Speaker} speakerId={speakerId} keytalks={keytalks}/>;
+    return (
+        <SpeakerForm
+            speaker={speaker as Speaker}
+            speakerId={speakerId}
+            keytalks={keytalks}
+        />
+    );
 };
 
 export default EventUpdatePage;

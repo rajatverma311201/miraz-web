@@ -9,20 +9,21 @@ interface SpeakerAdminPageProps {}
 
 const assignTitles = async (speaker: Speaker[]) => {
     for (let i = 0; i < speaker.length; i++) {
-        let {keytalkId} = speaker[i];
-        if(keytalkId === null) {speaker[i].keytalkId='None';}
-        else{
+        let { keytalkId } = speaker[i];
+        if (keytalkId === null) {
+            speaker[i].keytalkId = "None";
+        } else {
             // console.log("keytalkId",keytalkId);
             const keytalkTitle = await db.keytalk.findUnique({
                 where: {
-                    id: keytalkId
+                    id: keytalkId,
                 },
                 select: {
-                    title: true
-                }
+                    title: true,
+                },
             });
             // console.log("keytalkTitle",keytalkTitle);
-            if(keytalkTitle !== null) {  
+            if (keytalkTitle !== null) {
                 speaker[i] = { ...speaker[i], keytalkId: keytalkTitle.title };
             }
         }
@@ -31,7 +32,6 @@ const assignTitles = async (speaker: Speaker[]) => {
 };
 
 const SpeakerAdminPage: React.FC<SpeakerAdminPageProps> = async ({}) => {
-
     let speaker = await db.speaker.findMany();
 
     const updatedSpeaker = await assignTitles(speaker as Speaker[]);
@@ -43,7 +43,10 @@ const SpeakerAdminPage: React.FC<SpeakerAdminPageProps> = async ({}) => {
             <Button asChild>
                 <Link href="/admin/speakers/add">Add new Speaker</Link>
             </Button>
-            <DataTable columns={speakerColumns} data={updatedSpeaker as Speaker[]} />
+            <DataTable
+                columns={speakerColumns}
+                data={updatedSpeaker as Speaker[]}
+            />
         </div>
     );
 };
