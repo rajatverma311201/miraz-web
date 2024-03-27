@@ -40,8 +40,7 @@ export const DeleteAlertDialog: React.FC<DeleteAlertDialogProps> = ({
                     </AlertDialogTitle>
                     <AlertDialogDescription>
                         This action cannot be undone. This will permanently
-                        delete your account and remove your data from our
-                        servers.
+                        delete the item.
                     </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
