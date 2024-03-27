@@ -75,7 +75,7 @@ export const EventForm: React.FC<EventFormProps> = ({ event, eventId }) => {
 
     return (
         <>
-            <Card className="mx-auto max-w-[600px]">
+            <Card className="max-w-[600px]">
                 <CardHeader>
                     <CardTitle>
                         {eventId ? "Update Event" : "Add a new Event"}

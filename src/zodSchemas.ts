@@ -64,6 +64,15 @@ export const EventFormSchema = z
     .merge(EventSchema)
     .merge(EventPrizeSchema);
 
+export const CoordinatorFormSchema = z.object({
+    name: z.string().min(1, {
+        message: "name is required",
+    }),
+    contact: z.string().min(5, {
+        message: "contact too short",
+    }),
+});
+
 export const SpeakerFormSchema = z.object({
     name: z.string().min(1, {
         message: "name is required",
