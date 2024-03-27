@@ -1,9 +1,13 @@
-"use client"
+"use client";
 
-import { EventForm } from "@/components/admin/event-form"
+import { EventForm } from "@/components/admin/event-form";
 
 const EventFormPage = () => {
-  return <EventForm />
-}
+    return (
+        <div className="flex justify-center">
+            <EventForm />
+        </div>
+    );
+};
 
-export default EventFormPage
+export default EventFormPage;

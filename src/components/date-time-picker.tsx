@@ -10,13 +10,12 @@ export const DateTimePicker: React.FC<DateTimePickerProps> = ({
 }) => {
     return (
         <ReactDatePicker
-            className="rounded-md border px-3 py-2 text-sm"
+            className="w-full rounded-md border px-3 py-2 text-sm"
             showTimeInput
             showTimeSelect
             selected={datetime}
             onChange={(date) => {
                 setDatetime(new Date(date as Date));
-                console.log(date);
             }}
             dateFormat="dd/MM/yyyy, h:mmaa"
         />
