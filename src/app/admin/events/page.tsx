@@ -7,7 +7,6 @@ import { EventColumns } from "./event-columns";
 interface EventsAdminPageProps {}
 
 const EventsAdminPage: React.FC<EventsAdminPageProps> = async ({}) => {
-    // const events = await db.event.find();
     const events = await db.event.findMany();
     return (
         <div className="flex w-lvw flex-col items-center gap-5 overflow-x-hidden">
