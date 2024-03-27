@@ -47,10 +47,10 @@ export const SpeakerFormSchema = z.object({
     bio: z.string().min(1, {
         message: "bio is required",
     }),
-    qualification: z.string().min(5, {
+    qualification: z.string().min(1, {
         message: "qualification is required",
     }),
-    keytalkId: z.string().min(5, {
+    keytalkId: z.string().min(1, {
         message: "keytalkId is required",
     }),
 });

@@ -12,12 +12,17 @@ const assignTitles = async (speaker: Speaker[]) => {
         let {keytalkId} = speaker[i];
         if(keytalkId === null) {speaker[i].keytalkId='None';}
         else{
-            const keytalkTitle = await db.keytalk.findFirst({
+            // console.log("keytalkId",keytalkId);
+            const keytalkTitle = await db.keytalk.findUnique({
                 where: {
-                    id: keytalkId ?? undefined
+                    id: keytalkId
+                },
+                select: {
+                    title: true
                 }
             });
-            if(keytalkTitle !== null) {
+            // console.log("keytalkTitle",keytalkTitle);
+            if(keytalkTitle !== null) {  
                 speaker[i] = { ...speaker[i], keytalkId: keytalkTitle.title };
             }
         }
