@@ -1,10 +1,15 @@
-import React from 'react'
+import { SpeakerForm } from '@/components/admin/speaker-form'
+import { db } from '@/lib/db'
 
-const page = () => {
+const page = async () => {
+  const keytalks = await db.keytalk.findMany({
+    select: {
+      id: true,
+      title: true,
+    }
+  });
   return (
-    <div>
-      add Events
-    </div>
+    <SpeakerForm keytalks={keytalks}/>
   )
 }
 

@@ -17,4 +17,25 @@ declare module "types" {
         image: string;
         link: string;
     }
+
+    export interface MirazTeamMemberI{
+        name: string;
+        email: string;
+        role: string;
+    }
+
+    export interface KeyTalkI{
+        title: string;
+        time: string;
+    }
+    
+    export interface SpeakerI{
+        name: string;
+        image: string;
+        link: string;
+        qualification: string;
+        bio: string;
+        keytalkId?: string;
+    }
+    
 }
