@@ -13,22 +13,55 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Test {
-  id        String  @id @default(auto()) @map("_id") @db.ObjectId
-  title     String
-  completed Boolean
+enum UserRole {
+  ADMIN
+  USER
+}
+
+model User {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  role          UserRole  @default(USER)
+  accounts      Account[]
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Account {
+  id                String  @id @default(auto()) @map("_id") @db.ObjectId
+  userId            String  @db.ObjectId
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.String
+  access_token      String? @db.String
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.String
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([provider, providerAccountId])
 }
 
 model Event {
   id                   String   @id @default(auto()) @map("_id") @db.ObjectId
   name                 String
   club                 String
-  info                 String
+  tagline              String
   shortSummary         String
   longSummary          String
+  description          String
   image                String
   rulebookLink         String
-  description          String
   problemStatementLink String
   submissionLink       String
   createdAt            DateTime @default(now())
@@ -37,6 +70,25 @@ model Event {
   endTime              DateTime
   isLive               Boolean
   status               String
+  prizeWorth           Int
+  teamMaxSize          Int
+  teamMinSize          Int
+}
+
+model Coordinator {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  name    String
+  contact String
+  eventId String @db.ObjectId
+}
+
+model Prize {
+  id     String @id @default(auto()) @map("_id") @db.ObjectId
+  first  Int
+  second Int
+  third  Int
+
+  eventId String @unique @db.ObjectId
 }
 
 model MirazTeamMember {

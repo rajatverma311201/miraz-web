@@ -62,3 +62,8 @@ body {
         @apply bg-background text-foreground;
     }
 }
+
+.react-datepicker__tab-loop {
+    margin: 0 !important;
+    padding: 0 !important;
+}

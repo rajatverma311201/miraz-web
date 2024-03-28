@@ -10,14 +10,14 @@ import { deleteEvent } from "@/actions/event";
 import { toast } from "sonner";
 
 export type Event = {
-    title: string;
+    name: string;
     id: string;
 };
 
 export const EventColumns: ColumnDef<Event>[] = [
     {
-        accessorKey: "title",
-        header: "Title",
+        accessorKey: "name",
+        header: "Name",
     },
     {
         accessorKey: "id",
@@ -33,7 +33,9 @@ export const EventColumns: ColumnDef<Event>[] = [
                 const toastId = toast.loading("Deleting Event, Please Wait...");
                 try {
                     await deleteEvent(id);
-                    toast.success("Event Deleted Successfully", { id: toastId });
+                    toast.success("Event Deleted Successfully", {
+                        id: toastId,
+                    });
                     onSuccess?.();
                 } catch (error) {
                     console.error(error);
