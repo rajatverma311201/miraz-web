@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Roboto_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import "react-datepicker/dist/react-datepicker.css";
@@ -12,6 +12,7 @@ import { auth } from "@/auth";
 import { Nav } from "@/components/nav";
 
 const inter = Inter({ subsets: ["latin"] });
+const robotoMono = Roboto_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
     title: "Miraz",
@@ -36,22 +37,22 @@ export default async function RootLayout({
     const session = await auth();
 
     return (
-        <html lang="en">
+        <html lang="en" className="dark">
             <SessionProvider session={session}>
-                <body className={cn(inter.className, "")}>
+                <body className={cn(robotoMono.className, "")}>
                     <Toaster
                         richColors={true}
                         theme="light"
                         position="top-center"
                     />
-                    <Image
+                    {/* <Image
                         alt="background"
                         src={background}
                         quality={100}
                         fill
                         sizes="100vw"
                         className="-z-50"
-                    />
+                    /> */}
                     {children}
                 </body>
             </SessionProvider>

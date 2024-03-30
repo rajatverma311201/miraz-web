@@ -20,7 +20,7 @@ export const SponsorFormSchema = z.object({
     }),
 });
 
-export const TeamMemberFormSchema = z.object({
+export const MirazTeamMemberSchema = z.object({
     name: z.string().min(1, {
         message: "name is required",
     }),
@@ -31,7 +31,14 @@ export const TeamMemberFormSchema = z.object({
     role: z.string().min(1, {
         message: "role is required",
     }),
+    image: z.string().min(5, {
+        message: "image is required",
+    }),
+    linkedinLink: z.string(),
+    instagramLink: z.string(),
 });
+
+export const TeamMemberFormSchema = z.object({}).merge(MirazTeamMemberSchema);
 
 export const EventPrizeSchema = z.object({
     first: z.number(),
