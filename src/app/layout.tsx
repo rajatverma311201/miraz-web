@@ -38,20 +38,20 @@ export default async function RootLayout({
     return (
         <html lang="en">
             <SessionProvider session={session}>
-                <body className={cn(inter.className, "")}>
+                <body className={cn(inter.className, "bg-black", "")}>
                     <Toaster
                         richColors={true}
                         theme="light"
                         position="top-center"
                     />
-                    <Image
+                    {/* <Image
                         alt="background"
                         src={background}
                         quality={100}
                         fill
                         sizes="100vw"
                         className="-z-50"
-                    />
+                    /> */}
                     {children}
                 </body>
             </SessionProvider>
