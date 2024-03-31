@@ -39,7 +39,7 @@ export default async function RootLayout({
     return (
         <html lang="en" className="dark">
             <SessionProvider session={session}>
-                <body className={cn(robotoMono.className, "")}>
+                <body className={cn(robotoMono.className, " bg-black")}>
                     <Toaster
                         richColors={true}
                         theme="light"

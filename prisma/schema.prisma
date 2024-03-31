@@ -114,6 +114,7 @@ model Faq {
 model Sponsor {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   name      String
+  type      String?
   image     String
   link      String
   createdAt DateTime @default(now())

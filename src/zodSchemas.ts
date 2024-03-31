@@ -8,10 +8,11 @@ export const FaqFormSchema = z.object({
     }),
 });
 
-export const SponsorFormSchema = z.object({
+export const SponsorSchema = z.object({
     name: z.string().min(1, {
         message: "name is required",
     }),
+    type: z.string(),
     image: z.string().min(5, {
         message: "image is required",
     }),
@@ -19,6 +20,8 @@ export const SponsorFormSchema = z.object({
         message: "link too short",
     }),
 });
+
+export const SponsorFormSchema = z.object({}).merge(SponsorSchema);
 
 export const MirazTeamMemberSchema = z.object({
     name: z.string().min(1, {

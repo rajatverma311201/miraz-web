@@ -86,7 +86,7 @@ export const MirazTeamMemberCard: React.FC<MirazTeamMemberCardProps> = ({
 
     return (
         <motion.div
-            className="group bg-primary/50 "
+            className="group bg-primary "
             initial={{
                 opacity: 0,
                 scale: 0.75,
