@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 interface MainLayoutProps {
     children: React.ReactNode;
 }
