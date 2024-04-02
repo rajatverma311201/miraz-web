@@ -58,7 +58,7 @@ export const MirazTeamMemberCard: React.FC<MirazTeamMemberCardProps> = ({
             <Card className="relative z-10 rounded-none group-hover:-translate-x-2 group-hover:-translate-y-2">
                 <Image
                     className={cn(
-                        " absolute bottom-0  right-0 z-[-1] aspect-auto h-auto w-auto animate-pulse opacity-80",
+                        " absolute bottom-0  right-0 z-[-1] aspect-auto h-full w-auto animate-pulse opacity-80",
                         randomDurationClass,
                     )}
                     width={100}

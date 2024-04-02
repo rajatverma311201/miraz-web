@@ -25,14 +25,11 @@ import { Loader2 } from "lucide-react";
 import React from "react";
 
 import { Input } from "@/components/ui/input";
-import { addTeamMember,updateTeamMember } from "@/actions/team_member";
+import { addTeamMember, updateTeamMember } from "@/actions/team_member";
+import { ModelFormField } from "../model-form-field";
 
 interface TeamFormProps {
-    member?: {
-        name: string;
-        email:string;
-        role:string;
-    };
+    member?: z.infer<typeof TeamMemberFormSchema>;
     memberId?: string;
 }
 
@@ -42,13 +39,20 @@ export const TeamMemberForm: React.FC<TeamFormProps> = ({
 }) => {
     const router = useRouter();
 
+    const defValues: z.infer<typeof TeamMemberFormSchema> = memberId
+        ? member!
+        : {
+              name: "",
+              email: "",
+              role: "",
+              image: "",
+              linkedinLink: "",
+              instagramLink: "",
+          };
+
     const form = useForm<z.infer<typeof TeamMemberFormSchema>>({
         resolver: zodResolver(TeamMemberFormSchema),
-        defaultValues: {
-            name: memberId ? member?.name : "",
-            email: memberId ? member?.email : "",
-            role: memberId ? member?.role : "",
-        },
+        defaultValues: defValues,
     });
 
     const onSubmit = async (values: z.infer<typeof TeamMemberFormSchema>) => {
@@ -82,7 +86,9 @@ export const TeamMemberForm: React.FC<TeamFormProps> = ({
             <Card className="mx-auto max-w-[500px]">
                 <CardHeader>
                     <CardTitle>
-                        {memberId ? "Update Team Member" : "Add a new Team Member"}
+                        {memberId
+                            ? "Update Team Member"
+                            : "Add a new Team Member"}
                     </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -91,54 +97,51 @@ export const TeamMemberForm: React.FC<TeamFormProps> = ({
                             onSubmit={form.handleSubmit(onSubmit)}
                             className="space-y-8"
                         >
-                            <FormField
-                                control={form.control}
-                                name="name"
-                                render={({ field }) => (
-                                    <FormItem>
-                                        <FormLabel>Name</FormLabel>
-                                        <FormControl>
-                                            <Input
-                                                placeholder="Enter member's name"
-                                                {...field}
-                                            />
-                                        </FormControl>
-                                        <FormMessage />
-                                    </FormItem>
-                                )}
+                            <ModelFormField
+                                form={form}
+                                fieldName="name"
+                                label="Name"
+                                placeholder="Enter member's name"
                             />
-                            <FormField
-                                control={form.control}
-                                name="email"
-                                render={({ field }) => (
-                                    <FormItem>
-                                        <FormLabel>Email</FormLabel>
-                                        <FormControl>
-                                            <Input
-                                                placeholder="Enter member's email"
-                                                {...field}
-                                            />
-                                        </FormControl>
-                                        <FormMessage />
-                                    </FormItem>
-                                )}
+
+                            <div className="grid grid-cols-2 gap-4">
+                                <ModelFormField
+                                    form={form}
+                                    fieldName="email"
+                                    label="Email"
+                                    placeholder="Enter member's email"
+                                />
+
+                                <ModelFormField
+                                    form={form}
+                                    fieldName="role"
+                                    label="Role"
+                                    placeholder="Enter member's role"
+                                />
+                            </div>
+
+                            <ModelFormField
+                                form={form}
+                                fieldName="image"
+                                label="Image Link"
+                                placeholder="Enter member's image"
                             />
-                            <FormField
-                                control={form.control}
-                                name="role"
-                                render={({ field }) => (
-                                    <FormItem>
-                                        <FormLabel>Role</FormLabel>
-                                        <FormControl>
-                                            <Input
-                                                placeholder="Enter member's role"
-                                                {...field}
-                                            />
-                                        </FormControl>
-                                        <FormMessage />
-                                    </FormItem>
-                                )}
-                            />
+
+                            <div className="grid grid-cols-2 gap-4">
+                                <ModelFormField
+                                    form={form}
+                                    fieldName="linkedinLink"
+                                    label="Linkedin Link"
+                                    placeholder="member's linkedinLink"
+                                />
+
+                                <ModelFormField
+                                    form={form}
+                                    fieldName="instagramLink"
+                                    label="Instagram Link"
+                                    placeholder="member's instagramLink"
+                                />
+                            </div>
                             <Button
                                 type="submit"
                                 disabled={form.formState.isSubmitting}

@@ -1,28 +1,26 @@
 "use server";
 
 import { db } from "@/lib/db";
-import { MirazTeamMemberI } from "types";
+import { MirazTeamMemberSchema } from "@/zodSchemas";
+import { z } from "zod";
 
-export const addTeamMember = async (data: MirazTeamMemberI) => {
+interface ModelSchema extends z.infer<typeof MirazTeamMemberSchema> {}
+
+export const addTeamMember = async (data: ModelSchema) => {
+    const vals = MirazTeamMemberSchema.parse(data);
+
     await db.mirazTeamMember.create({
-        data: {
-            name: data.name,
-            email: data.email,
-            role: data.role,
-        },
+        data: vals,
     });
 };
 
-export const updateTeamMember = async (id: string, data: MirazTeamMemberI) => {
+export const updateTeamMember = async (id: string, data: ModelSchema) => {
+    const vals = MirazTeamMemberSchema.parse(data);
     await db.mirazTeamMember.update({
         where: {
             id,
         },
-        data: {
-            name: data.name,
-            email: data.email,
-            role: data.role,
-        },
+        data: vals,
     });
 };
 

@@ -1,4 +1,5 @@
 import { MirazTeamMemberCard } from "@/components/miraz-team-card";
+import { db } from "@/lib/db";
 
 const MIRAZ_TEAM_DATA = [
     {
@@ -13,7 +14,9 @@ const MIRAZ_TEAM_DATA = [
 
 interface MirazTeamPageProps {}
 
-const MirazTeamPage: React.FC<MirazTeamPageProps> = () => {
+const MirazTeamPage: React.FC<MirazTeamPageProps> = async () => {
+    const members = await db.mirazTeamMember.findMany();
+
     return (
         <div className="p-10">
             <h1 className="text-center text-5xl">Miraz Team</h1>
@@ -30,8 +33,16 @@ const MirazTeamPage: React.FC<MirazTeamPageProps> = () => {
             </p> */}
 
             <div className="flex flex-wrap items-center justify-center gap-20 pt-20">
-                {Array.from({ length: 10 }).map((_, index) => (
-                    <MirazTeamMemberCard key={index} {...MIRAZ_TEAM_DATA[0]} />
+                {members.map((member) => (
+                    <MirazTeamMemberCard
+                        key={member.id}
+                        name={member.name}
+                        email={member.email}
+                        role={member.role}
+                        image={member.image}
+                        linkedinLink={member.linkedinLink}
+                        instagramLink={member.instagramLink}
+                    />
                 ))}
             </div>
         </div>
