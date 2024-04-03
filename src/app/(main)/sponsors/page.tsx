@@ -16,12 +16,11 @@ interface SponsorsPageProps {}
 
 const SponsorsPage: React.FC<SponsorsPageProps> = async ({}) => {
     const sponsors = await db.sponsor.findMany({});
-    console.log(sponsors);
 
     return (
         <>
             <PageHeading title="Our Sponsors" />
-            <div className="my-10 flex flex-wrap gap-5 ">
+            <div className=" flex flex-wrap gap-5 ">
                 {sponsors.map((sponsor) => (
                     <SponsorCard
                         key={sponsor.id}

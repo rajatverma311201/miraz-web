@@ -55,7 +55,7 @@ export const MirazTeamMemberCard: React.FC<MirazTeamMemberCardProps> = ({
                 scale: 1,
             }}
         >
-            <Card className="relative z-10 overflow-hidden rounded-none group-hover:-translate-x-2 group-hover:-translate-y-2">
+            <Card className="relative z-10 w-80 overflow-hidden rounded-none group-hover:-translate-x-2 group-hover:-translate-y-2">
                 <Image
                     className={cn(
                         " absolute bottom-0  right-0 z-[-1] aspect-auto h-full w-auto animate-pulse opacity-80",
@@ -75,7 +75,7 @@ export const MirazTeamMemberCard: React.FC<MirazTeamMemberCardProps> = ({
                         width={500}
                         src={image}
                         alt="team member"
-                        className="z-50 h-52 w-auto"
+                        className="z-50 h-auto w-full"
                     />
                 </CardContent>
 
