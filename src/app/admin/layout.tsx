@@ -1,4 +1,7 @@
 import { Nav } from "@/components/nav";
+import { getUser } from "@/lib/auth-utils";
+import { UserRole } from "@prisma/client";
+import { redirect } from "next/navigation";
 
 interface AdminLayoutProps {
     children: React.ReactNode;
@@ -7,7 +10,14 @@ interface AdminLayoutProps {
 export const revalidate = 0;
 export const dynamic = "force-dynamic";
 
-const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
+const AdminLayout: React.FC<AdminLayoutProps> = async ({ children }) => {
+    const user = await getUser();
+    if (!user) {
+        redirect("/login");
+    }
+    if (user.role == UserRole.USER) {
+        redirect("/");
+    }
     return (
         <>
             <Nav />
