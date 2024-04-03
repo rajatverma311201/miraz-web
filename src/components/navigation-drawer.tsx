@@ -11,7 +11,7 @@ export const NavigationDrawer: React.FC<NavigationDrawerProps> = async ({}) => {
 
     return (
         <NavigationDrawerWrapper>
-            <div className="flex flex-col gap-5 px-5 lg:gap-8">
+            <div className="flex flex-col gap-5 px-5 lg:gap-6">
                 {DATA.map((item) => {
                     if (item.title === "Login/Register" && user) {
                         return null;
