@@ -20,19 +20,17 @@ const SponsorsPage: React.FC<SponsorsPageProps> = async ({}) => {
 
     return (
         <>
-            <div className="p-10">
-                <PageHeading title="Our Sponsors" />
-                <div className="my-10 flex flex-wrap gap-5 ">
-                    {sponsors.map((sponsor) => (
-                        <SponsorCard
-                            key={sponsor.id}
-                            name={sponsor.name}
-                            image={sponsor.image}
-                            link={sponsor.link}
-                            type={sponsor.type as string}
-                        />
-                    ))}
-                </div>
+            <PageHeading title="Our Sponsors" />
+            <div className="my-10 flex flex-wrap gap-5 ">
+                {sponsors.map((sponsor) => (
+                    <SponsorCard
+                        key={sponsor.id}
+                        name={sponsor.name}
+                        image={sponsor.image}
+                        link={sponsor.link}
+                        type={sponsor.type as string}
+                    />
+                ))}
             </div>
         </>
     );
