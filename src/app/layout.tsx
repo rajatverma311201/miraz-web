@@ -11,6 +11,7 @@ import { SessionProvider } from "next-auth/react";
 import { auth } from "@/auth";
 import { Nav } from "@/components/nav";
 import { MessageToast } from "@/components/message-toast";
+import { NavigationDrawer } from "@/components/navigation-drawer";
 
 const inter = Inter({ subsets: ["latin"] });
 const robotoMono = Roboto_Mono({ subsets: ["latin"] });
@@ -43,6 +44,7 @@ export default async function RootLayout({
                 <body
                     className={cn(
                         robotoMono.className,
+                        "relative",
                         // "bg-gradient-to-br from-sky-500 to-indigo-500",
                     )}
                 >
@@ -62,6 +64,9 @@ export default async function RootLayout({
 
                     <MessageToast />
 
+                    {/* <div className="flex w-full  bg-green-400"> */}
+                    <NavigationDrawer />
+                    {/* </div> */}
                     {children}
                 </body>
             </SessionProvider>
