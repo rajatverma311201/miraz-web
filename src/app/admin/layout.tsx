@@ -16,7 +16,7 @@ const AdminLayout: React.FC<AdminLayoutProps> = async ({ children }) => {
         redirect("/login");
     }
     if (user.role == UserRole.USER) {
-        redirect("/");
+        redirect("/?error=unauthorized");
     }
     return (
         <>

@@ -10,6 +10,7 @@ import background from "../../public/background.webp";
 import { SessionProvider } from "next-auth/react";
 import { auth } from "@/auth";
 import { Nav } from "@/components/nav";
+import { MessageToast } from "@/components/message-toast";
 
 const inter = Inter({ subsets: ["latin"] });
 const robotoMono = Roboto_Mono({ subsets: ["latin"] });
@@ -47,7 +48,7 @@ export default async function RootLayout({
                 >
                     <Toaster
                         richColors={true}
-                        theme="light"
+                        theme="dark"
                         position="top-center"
                     />
                     {/* <Image
@@ -58,6 +59,9 @@ export default async function RootLayout({
                         sizes="100vw"
                         className="-z-50"
                     /> */}
+
+                    <MessageToast />
+
                     {children}
                 </body>
             </SessionProvider>
