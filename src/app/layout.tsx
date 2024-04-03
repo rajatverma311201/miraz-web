@@ -42,7 +42,7 @@ export default async function RootLayout({
                 <body
                     className={cn(
                         robotoMono.className,
-                        "bg-gradient-to-br from-sky-500 to-indigo-500",
+                        // "bg-gradient-to-br from-sky-500 to-indigo-500",
                     )}
                 >
                     <Toaster

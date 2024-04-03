@@ -48,7 +48,7 @@ const EventDetailPage: React.FC<EventDetailPageProps> = async ({ params }) => {
     return (
         <>
             <Image
-                className="-z-10 opacity-20 blur-sm"
+                className="-z-10 opacity-25 blur-sm"
                 src={event!.image}
                 alt="event"
                 quality={100}
