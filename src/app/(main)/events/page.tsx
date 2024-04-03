@@ -1,5 +1,6 @@
 import { db } from "@/lib/db";
 import { EventsList } from "@/components/events-list";
+import { PageHeading } from "@/components/page-heading";
 
 interface EventsPageProps {}
 
@@ -8,7 +9,7 @@ const EventsPage: React.FC<EventsPageProps> = async ({}) => {
 
     return (
         <>
-            <h1 className="my-20 text-center text-7xl">Events</h1>
+            <PageHeading title="Events" />
             <EventsList events={events} />
         </>
     );

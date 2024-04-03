@@ -1,21 +1,19 @@
 "use client";
 
-import { EventCard } from "./event-card";
+import { EventCard } from "@/components/event-card";
 
-import { Event, EventType } from "@prisma/client";
-import { Input } from "@/components/ui/input";
-import {
-    Card,
-    CardContent,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card";
+import { Event } from "@prisma/client";
+
 import { useEffect, useState } from "react";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Label } from "@/components/ui/label";
-import { CheckedState } from "@radix-ui/react-checkbox";
-import { LiaSearchSolid } from "react-icons/lia";
+import { EventsFilterCard } from "@/components/events-filter-card";
+import {
+    Popover,
+    PopoverContent,
+    PopoverTrigger,
+} from "@/components/ui/popover";
+import { Button } from "@/components/ui/button";
+
+import { IoFilterOutline } from "react-icons/io5";
 
 interface EventsListProps {
     events: Event[];
@@ -29,6 +27,7 @@ export const EventsList: React.FC<EventsListProps> = ({ events }) => {
         TECH: false,
     });
     const [filteredEvents, setFilteredEvents] = useState<Event[]>(events);
+
     useEffect(() => {
         const filtered = events.filter((event) => {
             // if all values in eventTypeFilter are false, return true
@@ -50,55 +49,40 @@ export const EventsList: React.FC<EventsListProps> = ({ events }) => {
         setFilteredEvents(filtered2);
     }, [eventSearch, eventTypeFilter, events]);
 
-    function eventTypeFilterChange(state: CheckedState, type: string) {
-        setEventTypeFilter((prev) => {
-            return { ...prev, [type]: state === true };
-        });
-    }
-
     return (
-        <div className="flex flex-col items-center lg:flex-row lg:items-start">
-            <Card className="mx-8 mb-12 h-max w-max min-w-80">
-                <CardHeader>
-                    <CardTitle className="text-center">Filters</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-8">
-                    <Input
-                        value={eventSearch}
-                        placeholder=" Search events"
-                        onChange={(e) => {
-                            setEventSearch(e.target.value);
-                            console.log(e.target.value);
-                        }}
-                    />
-                    <div className="space-y-3">
-                        {Object.keys(EventType).map((type, idx) => {
-                            return (
-                                <div key={idx}>
-                                    <Checkbox
-                                        id={type}
-                                        onCheckedChange={(state) =>
-                                            eventTypeFilterChange(state, type)
-                                        }
-                                    />
-                                    <Label
-                                        className="ml-4 cursor-pointer text-xl"
-                                        htmlFor={type}
-                                    >
-                                        {type}
-                                    </Label>
-                                </div>
-                            );
-                        })}
-                    </div>
-                </CardContent>
-                <CardFooter></CardFooter>
-            </Card>
-            <div className="flex w-full flex-wrap justify-center gap-10">
-                {filteredEvents.map((event) => (
-                    <EventCard key={event.id} event={event} />
-                ))}
+        <>
+            <div className="mb-4 text-center lg:hidden">
+                <Popover>
+                    <PopoverTrigger className="" asChild>
+                        <Button variant="outline">
+                            <IoFilterOutline />
+                            <p className="ml-2">Filter</p>
+                        </Button>
+                    </PopoverTrigger>
+                    <PopoverContent>
+                        <EventsFilterCard
+                            eventTypeFilter={eventTypeFilter}
+                            eventSearch={eventSearch}
+                            setEventSearch={setEventSearch}
+                            setEventTypeFilter={setEventTypeFilter}
+                        />
+                    </PopoverContent>
+                </Popover>
             </div>
-        </div>
+            <div className="flex flex-col items-center lg:flex-row lg:items-start">
+                <EventsFilterCard
+                    eventTypeFilter={eventTypeFilter}
+                    className="mx-8 mb-8 hidden h-max w-max min-w-80 lg:inline"
+                    eventSearch={eventSearch}
+                    setEventSearch={setEventSearch}
+                    setEventTypeFilter={setEventTypeFilter}
+                />
+                <div className="flex w-full flex-wrap justify-center gap-10">
+                    {filteredEvents.map((event) => (
+                        <EventCard key={event.id} event={event} />
+                    ))}
+                </div>
+            </div>
+        </>
     );
 };

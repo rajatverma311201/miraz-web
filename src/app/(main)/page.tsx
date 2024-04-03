@@ -37,11 +37,7 @@ export default function Home() {
 
     return (
         <main className="flex h-full min-h-screen flex-col items-center justify-center space-y-4 p-24 text-white">
-            <h1 className={"  text-[10rem] font-medium [perspective:500px]  "}>
-                <span className="[transform-style:preserve-3d] [transform:rotateX(75deg)_rotateY(0deg)]">
-                    Miraz
-                </span>
-            </h1>
+            <h1 className="main-heading text-[10rem]">Miraz</h1>
 
             <motion.div
                 initial={{ opacity: 0, scale: 0.7 }}

@@ -99,7 +99,7 @@ const EventDetailPage: React.FC<EventDetailPageProps> = async ({ params }) => {
                 </div>
                 <div className="flex flex-wrap items-center justify-center gap-10 lg:gap-20 ">
                     <EventActionButtons
-                        registerLink="/"
+                        // registerLink="/"
                         rulebookLink={event!.rulebookLink}
                     />
                 </div>
