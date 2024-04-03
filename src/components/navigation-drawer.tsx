@@ -53,15 +53,16 @@ const DATA = [
         description: "Go to the home page",
         href: "/",
     },
-    // {
-    //     title: "About",
-    //     description: "Know more about us",
-    //     href: "/about",
-    // },
+
     {
         title: "Events",
         description: "View all events",
         href: "/events",
+    },
+    {
+        title: "Keytalks",
+        description: "View all keytalks",
+        href: "/keytalks",
     },
     {
         title: "Sponsors",
@@ -74,36 +75,28 @@ const DATA = [
         href: "/team",
     },
     {
+        title: "Payment",
+        description: "Payment Details",
+        href: "/payment",
+    },
+    {
         title: "FAQ",
         description: "Contact us",
         href: "/faq",
     },
 
-    // {
-    //     title: "Contact",
-    //     description: "Contact us",
-    //     href: "/contact",
-    // },
     {
         title: "Login/Register",
         description: "Login to your account",
         href: "/auth/login",
     },
-    // {
-    //     title: "Register",
-    //     description: "Create a new account",
-    //     href: "/register",
-    // },
+
     {
         title: "Profile",
         description: "View your profile",
         href: "/profile",
     },
-    // {
-    //     title: "Settings",
-    //     description: "Change your settings",
-    //     href: "/settings",
-    // },
+
     {
         title: "Logout",
         description: "Logout from your account",

@@ -19,6 +19,7 @@ import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { toast } from "sonner";
 import { AlertCircle } from "lucide-react";
+import { PageHeading } from "@/components/page-heading";
 
 interface LoginPageProps {}
 
@@ -53,47 +54,38 @@ const LoginPage: React.FC<LoginPageProps> = ({}) => {
 
     return (
         <>
-            <div className="flex w-full flex-col items-center justify-center pt-20">
-                <Card className="min-w-80 max-w-96">
-                    <CardHeader className="flex flex-col items-center">
-                        <Image
-                            width={200}
-                            height={200}
-                            src="/logo-1.png"
-                            alt="logo"
-                        />
-                        <CardTitle>Login</CardTitle>
-                    </CardHeader>
-                    <CardContent className="flex flex-col gap-5">
-                        <Button
-                            className="text-base"
-                            variant={"outline"}
-                            size={"lg"}
-                            onClick={() => clickHandler("google")}
-                        >
-                            <FcGoogle className="mr-2 h-6 w-6" />
-                            Google
-                        </Button>
-                        <Button
-                            className="text-base"
-                            variant={"outline"}
-                            size={"lg"}
-                            onClick={() => clickHandler("github")}
-                        >
-                            <FaGithub className="mr-2 h-6 w-6" />
-                            Github
-                        </Button>
-                    </CardContent>
-                    <CardFooter>
-                        {urlError ? (
-                            <div className="flex items-center justify-center gap-x-2 rounded-md border border-destructive bg-destructive/10 p-3 text-sm text-destructive">
-                                <AlertCircle className="mr-2 h-7 w-7" />
-                                <p className="font-medium">{urlError}</p>
-                            </div>
-                        ) : null}
-                    </CardFooter>
-                </Card>
-            </div>
+            <PageHeading title="Login / Register" />
+            <Card className="mx-auto w-max min-w-80 max-w-96  lg:translate-y-12 lg:scale-[1.2]">
+                <CardHeader className="flex flex-col items-center gap-4">
+                    <Image
+                        width={200}
+                        height={200}
+                        src="/logo-1.png"
+                        alt="logo"
+                    />
+                </CardHeader>
+                <CardContent className="flex flex-col items-stretch gap-5 py-12">
+                    <Button
+                        className="text-base"
+                        variant={"outline"}
+                        size={"lg"}
+                        onClick={() => clickHandler("google")}
+                    >
+                        <FcGoogle className="mr-2 h-6 w-6" />
+                        Google
+                    </Button>
+                    <Button
+                        className="text-base"
+                        variant={"outline"}
+                        size={"lg"}
+                        onClick={() => clickHandler("github")}
+                    >
+                        <FaGithub className="mr-2 h-6 w-6" />
+                        Github
+                    </Button>
+                </CardContent>
+                <CardFooter></CardFooter>
+            </Card>
         </>
     );
 };
