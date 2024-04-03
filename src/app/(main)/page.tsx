@@ -1,11 +1,11 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { AboutContent } from "@/components/about-content";
 
-const arr = ["Events", "Sponsors", "Team", "Keytalks", "Faq", "About"];
+const arr = ["Events", "Sponsors", "Team", "Keytalks", "Faq"];
 const len = arr.length;
 
 export default function Home() {

@@ -1,4 +1,5 @@
 import { MirazTeamMemberCard } from "@/components/miraz-team-card";
+import { PageHeading } from "@/components/page-heading";
 import { db } from "@/lib/db";
 
 const MIRAZ_TEAM_DATA = [
@@ -19,7 +20,7 @@ const MirazTeamPage: React.FC<MirazTeamPageProps> = async () => {
 
     return (
         <div className="p-10">
-            <h1 className="text-center text-5xl">Miraz Team</h1>
+            <PageHeading title="Miraz Team" />
             {/* <p>
                 Our team is a group of passionate individuals who are dedicated
                 to creating a better future for our clients. We are committed to
