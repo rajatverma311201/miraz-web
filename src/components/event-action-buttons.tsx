@@ -16,6 +16,8 @@ interface EventActionButtonsProps {
 export const EventActionButtons: React.FC<EventActionButtonsProps> = ({
     rulebookLink,
     registerLink,
+    submissionLink,
+    problemStatementLink,
 }) => {
     const router = useRouter();
 
@@ -35,26 +37,53 @@ export const EventActionButtons: React.FC<EventActionButtonsProps> = ({
         };
     });
 
+    const iconClassName = "text-lg mr-4";
+
+    const LINKS_DATA = [
+        {
+            text: "Register",
+            href: registerLink,
+            icon: <PiCircleBold className={iconClassName} />,
+            className: "border-primary",
+        },
+        {
+            text: "RuleBook",
+            href: rulebookLink,
+            icon: <ImCross className={iconClassName} />,
+            className: "border-destructive",
+        },
+        {
+            text: "Submission",
+            href: submissionLink,
+            icon: <ImCross className={iconClassName} />,
+        },
+        {
+            text: "Problem Statement",
+            href: problemStatementLink,
+            icon: <ImCross className={iconClassName} />,
+        },
+    ];
+
     return (
-        <div className="flex justify-center gap-28">
-            <Button
-                asChild
-                className="border-x-2 border-primary bg-transparent hover:scale-125 hover:bg-transparent"
-            >
-                <Link href="/" className="flex gap-2">
-                    <PiCircleBold className="text-lg font-bold" />
-                    Register
-                </Link>
-            </Button>
-            <Button
-                asChild
-                className="border-x-2 border-destructive bg-transparent hover:scale-125 hover:bg-transparent"
-            >
-                <Link href={rulebookLink} className="flex gap-2">
-                    <ImCross className="text-lg" />
-                    RuleBook
-                </Link>
-            </Button>
-        </div>
+        <>
+            {LINKS_DATA.map((link) => {
+                return (
+                    link.href && (
+                        <Button
+                            size={"lg"}
+                            asChild
+                            variant={"eventAction"}
+                            key={link.text}
+                            className={link.className}
+                        >
+                            <Link href={link.href}>
+                                {link.icon}
+                                {link.text}
+                            </Link>
+                        </Button>
+                    )
+                );
+            })}
+        </>
     );
 };
