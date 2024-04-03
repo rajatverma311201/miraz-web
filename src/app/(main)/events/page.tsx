@@ -8,6 +8,9 @@ import {
     CardTitle,
 } from "@/components/ui/card";
 import Link from "next/link";
+import { EventCard } from "@/components/event-card";
+import { EventsList } from "@/components/events-list";
+import { $Enums, Event, EventType } from "@prisma/client";
 
 interface EventsPageProps {}
 
@@ -20,30 +23,7 @@ const EventsPage: React.FC<EventsPageProps> = async ({}) => {
                 <h1 className="text-7xl">Events</h1>
             </div>
 
-            <div className="mx-16 flex flex-wrap items-center justify-start gap-8">
-                {events.map((event) => {
-                    return (
-                        <Link href={`/events/${event.id}`} key={event.id}>
-                            <Card
-                                className="m-4 min-h-[300px] min-w-[280px]"
-                                // style={{
-                                //     backgroundImage: `url(${event.image})`,
-                                // }}
-                                key={event.id}
-                            >
-                                <CardHeader>
-                                    <CardTitle>{event.name}</CardTitle>
-                                    <CardDescription>
-                                        {event.tagline}
-                                    </CardDescription>
-                                </CardHeader>
-
-                                <CardFooter>{event.shortSummary}</CardFooter>
-                            </Card>
-                        </Link>
-                    );
-                })}
-            </div>
+            <EventsList events={events} />
         </>
     );
 };
