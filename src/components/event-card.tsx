@@ -17,10 +17,7 @@ export const EventCard: React.FC<EventCardProps> = ({ event }) => {
     return (
         <Link href={`/events/${event.id}`} key={event.id}>
             <Card
-                className="m-4 min-h-[300px] min-w-[280px] hover:shadow-[0_0px_8px_6px] hover:shadow-primary"
-                // style={{
-                //     backgroundImage: `url(${event.image})`,
-                // }}
+                className="min-h-[300px] min-w-[280px] hover:shadow-[0_0px_0px_3px] hover:shadow-primary"
                 key={event.id}
             >
                 <CardHeader>

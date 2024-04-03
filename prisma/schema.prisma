@@ -61,7 +61,7 @@ model Account {
 model Event {
   id                   String   @id @default(auto()) @map("_id") @db.ObjectId
   name                 String
-  type                 EventType? @default(SPORTS)
+  type                 EventType @default(SPORTS)
   club                 String
   tagline              String
   shortSummary         String

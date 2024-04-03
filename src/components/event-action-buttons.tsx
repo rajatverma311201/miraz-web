@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 
 interface EventActionButtonsProps {
     rulebookLink: string;
-    registerLink: string;
+    registerLink?: string;
     submissionLink?: string;
     problemStatementLink?: string;
 }
@@ -23,7 +23,7 @@ export const EventActionButtons: React.FC<EventActionButtonsProps> = ({
 
     useEffect(() => {
         function handleKeyPress(event: KeyboardEvent) {
-            if (event.key.toLowerCase() === "o") {
+            if (registerLink && event.key.toLowerCase() === "o") {
                 router.push(registerLink);
             } else if (event.key.toLowerCase() === "x") {
                 router.push(rulebookLink);

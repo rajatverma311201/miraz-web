@@ -5,11 +5,8 @@ import "./globals.css";
 import "react-datepicker/dist/react-datepicker.css";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/sonner";
-import Image from "next/image";
-import background from "../../public/background.webp";
 import { SessionProvider } from "next-auth/react";
 import { auth } from "@/auth";
-import { Nav } from "@/components/nav";
 import { MessageToast } from "@/components/message-toast";
 import { NavigationDrawer } from "@/components/navigation-drawer";
 
@@ -41,32 +38,17 @@ export default async function RootLayout({
     return (
         <html lang="en" className="dark">
             <SessionProvider session={session}>
-                <body
-                    className={cn(
-                        robotoMono.className,
-                        "relative",
-                        // "bg-gradient-to-br from-sky-500 to-indigo-500",
-                    )}
-                >
+                <body className={cn(robotoMono.className, "relative")}>
                     <Toaster
                         richColors={true}
                         theme="dark"
                         position="top-center"
                     />
-                    {/* <Image
-                        alt="background"
-                        src={background}
-                        quality={100}
-                        fill
-                        sizes="100vw"
-                        className="-z-50"
-                    /> */}
 
                     <MessageToast />
 
-                    {/* <div className="flex w-full  bg-green-400"> */}
                     <NavigationDrawer />
-                    {/* </div> */}
+
                     {children}
                 </body>
             </SessionProvider>

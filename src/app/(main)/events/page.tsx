@@ -1,16 +1,6 @@
-import Image from "next/image";
 import { db } from "@/lib/db";
-import {
-    Card,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card";
-import Link from "next/link";
-import { EventCard } from "@/components/event-card";
 import { EventsList } from "@/components/events-list";
-import { $Enums, Event, EventType } from "@prisma/client";
+import { PageHeading } from "@/components/page-heading";
 
 interface EventsPageProps {}
 
@@ -19,10 +9,7 @@ const EventsPage: React.FC<EventsPageProps> = async ({}) => {
 
     return (
         <>
-            <div className="mx-5 my-12 flex items-center justify-center py-6 text-white">
-                <h1 className="text-7xl">Events</h1>
-            </div>
-
+            <PageHeading title="Events" />
             <EventsList events={events} />
         </>
     );

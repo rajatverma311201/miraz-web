@@ -14,11 +14,12 @@ import { addEvent, updateEvent } from "@/actions/event";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { Loader2 } from "lucide-react";
+import { Event } from "@prisma/client";
 
 import { ModelFormField } from "@/components/model-form-field";
 
 interface EventFormProps {
-    event?: z.infer<typeof EventFormSchema>;
+    event?: Event;
     eventId?: string;
 }
 
@@ -40,6 +41,7 @@ export const EventForm: React.FC<EventFormProps> = ({ event, eventId }) => {
         endTime: new Date(),
         isLive: false,
         status: "",
+        type: "",
     };
 
     const form = useForm<z.infer<typeof EventFormSchema>>({
