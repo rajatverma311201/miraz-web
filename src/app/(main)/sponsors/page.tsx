@@ -1,3 +1,4 @@
+import { PageHeading } from "@/components/page-heading";
 import {
     Card,
     CardContent,
@@ -20,7 +21,7 @@ const SponsorsPage: React.FC<SponsorsPageProps> = async ({}) => {
     return (
         <>
             <div className="p-10">
-                <h1 className="text-center text-5xl">Our Sponsors</h1>
+                <PageHeading title="Our Sponsors" />
                 <div className="my-10 flex flex-wrap gap-5 ">
                     {sponsors.map((sponsor) => (
                         <SponsorCard

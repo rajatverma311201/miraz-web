@@ -53,11 +53,11 @@ const DATA = [
         description: "Go to the home page",
         href: "/",
     },
-    {
-        title: "About",
-        description: "Know more about us",
-        href: "/about",
-    },
+    // {
+    //     title: "About",
+    //     description: "Know more about us",
+    //     href: "/about",
+    // },
     {
         title: "Events",
         description: "View all events",
