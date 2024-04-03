@@ -1,15 +1,8 @@
-import { Button } from "@/components/ui/button";
 import { db } from "@/lib/db";
-import Link from "next/link";
-import { PiCircleBold } from "react-icons/pi";
-import { ImCross } from "react-icons/im";
 import { EventActionButtons } from "@/components/event-action-buttons";
 import Image from "next/image";
 import { LuCalendarClock } from "react-icons/lu";
-import { FaRegClock } from "react-icons/fa";
 import { AiOutlineTeam, AiOutlineTrophy } from "react-icons/ai";
-
-import { GrTrophy } from "react-icons/gr";
 import { RUPEE_ICON } from "@/lib/constants";
 import {
     Card,
@@ -80,9 +73,7 @@ const EventDetailPage: React.FC<EventDetailPageProps> = async ({ params }) => {
                         </CardContent>
 
                         <CardFooter className="mt- grid grid-cols-[50px_1fr]  items-center gap-4 text-lg font-light md:text-xl ">
-                            {/* <p className="mt-5 flex items-center gap-2 text-lg"> */}
                             <LuCalendarClock {...iconOpts} />
-                            {/* <p> */}
                             {startTime.toLocaleDateString("en-in", dateOptions)}
                             {", "}
                             {startTime.toLocaleTimeString("en-gb", timeOptions)}
