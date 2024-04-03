@@ -12,12 +12,12 @@ export const dynamic = "force-dynamic";
 
 const AdminLayout: React.FC<AdminLayoutProps> = async ({ children }) => {
     const user = await getUser();
-    if (!user) {
-        redirect("/login");
-    }
-    if (user.role == UserRole.USER) {
-        redirect("/?error=unauthorized");
-    }
+    // if (!user) {
+    //     redirect("/login");
+    // }
+    // if (user.role == UserRole.USER) {
+    //     redirect("/?error=unauthorized");
+    // }
     return (
         <>
             <Nav />
