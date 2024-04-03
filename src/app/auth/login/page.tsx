@@ -44,9 +44,10 @@ const LoginPage: React.FC<LoginPageProps> = ({}) => {
     // }
 
     const clickHandler = (provider: "google" | "github") => {
+        toast.loading("Logging in, Please Wait !!!");
         console.log("[AuthPopover]\n clickHandler() ");
         signIn(provider, {
-            callbackUrl: DEFAULT_LOGIN_REDIRECT,
+            callbackUrl: DEFAULT_LOGIN_REDIRECT + "?loggedIn=true",
         });
     };
 
