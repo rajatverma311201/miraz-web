@@ -1,6 +1,7 @@
 "use client";
 
 import { logout } from "@/actions/logout";
+import { toast } from "sonner";
 
 interface LogoutButtonProps {
     children?: React.ReactNode;
@@ -8,6 +9,7 @@ interface LogoutButtonProps {
 
 export const LogoutBtn: React.FC<LogoutButtonProps> = ({ children }) => {
     const onClick = () => {
+        toast.loading("Logging out, Please Wait !!!");
         logout();
     };
 

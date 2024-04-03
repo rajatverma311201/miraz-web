@@ -21,6 +21,8 @@ const buttonVariants = cva(
                 link: "text-primary underline-offset-4 hover:underline",
                 eventAction:
                     "border-x-4 bg-transparent text-xl text-white hover:scale-125 hover:bg-transparent",
+                navLink:
+                    "w-full -translate-x-1 -translate-y-1 rounded-none bg-secondary py-5 text-base  font-normal uppercase hover:-translate-x-1.5 hover:-translate-y-1.5 active:translate-x-0 active:translate-y-0  h-12",
             },
             size: {
                 default: "h-10 px-4 py-2",
@@ -28,6 +30,7 @@ const buttonVariants = cva(
                 lg: "h-11 rounded-md px-8",
                 icon: "h-10 w-10",
                 iconSm: "h-8 w-8",
+                navLinkSz: "h-12",
             },
         },
         defaultVariants: {

@@ -7,6 +7,8 @@ import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/sonner";
 import { SessionProvider } from "next-auth/react";
 import { auth } from "@/auth";
+import { MessageToast } from "@/components/message-toast";
+import { NavigationDrawer } from "@/components/navigation-drawer";
 
 const inter = Inter({ subsets: ["latin"] });
 const robotoMono = Roboto_Mono({ subsets: ["latin"] });
@@ -36,12 +38,17 @@ export default async function RootLayout({
     return (
         <html lang="en" className="dark">
             <SessionProvider session={session}>
-                <body className={cn(robotoMono.className)}>
+                <body className={cn(robotoMono.className, "relative")}>
                     <Toaster
                         richColors={true}
-                        theme="light"
+                        theme="dark"
                         position="top-center"
                     />
+
+                    <MessageToast />
+
+                    <NavigationDrawer />
+
                     {children}
                 </body>
             </SessionProvider>
