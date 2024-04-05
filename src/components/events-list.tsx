@@ -25,6 +25,8 @@ export const EventsList: React.FC<EventsListProps> = ({ events }) => {
         SPORTS: false,
         CULT: false,
         TECH: false,
+        LIT: false,
+        eSPORTS: false,
     });
     const [filteredEvents, setFilteredEvents] = useState<Event[]>(events);
 

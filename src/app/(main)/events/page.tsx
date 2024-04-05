@@ -2,6 +2,7 @@ import { db } from "@/lib/db";
 import { EventsList } from "@/components/events-list";
 import { PageHeading } from "@/components/page-heading";
 import { Metadata } from "next";
+import { wait } from "@/lib/utils";
 
 interface EventsPageProps {}
 

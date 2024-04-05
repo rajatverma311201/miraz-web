@@ -18,12 +18,16 @@ interface EventsFilterCardProps {
         SPORTS: boolean;
         CULT: boolean;
         TECH: boolean;
+        LIT: boolean;
+        eSPORTS: boolean;
     };
     setEventTypeFilter: React.Dispatch<
         React.SetStateAction<{
             SPORTS: boolean;
             CULT: boolean;
             TECH: boolean;
+            LIT: boolean;
+            eSPORTS: boolean;
         }>
     >;
     setEventSearch: React.Dispatch<React.SetStateAction<string>>;

@@ -53,8 +53,6 @@ export const EventSchema = z.object({
     name: z.string(),
     club: z.string(),
     tagline: z.string(),
-    shortSummary: z.string(),
-    longSummary: z.string(),
     image: z.string(),
     rulebookLink: z.string(),
     description: z.string(),

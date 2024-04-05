@@ -58,7 +58,7 @@ const EventUpdatePage: React.FC<EventUpdatePageProps> = async ({ params }) => {
     return (
         <>
             <div className="flex items-start justify-center gap-10">
-                <EventForm event={finalData} eventId={eventId} />
+                {/* <EventForm event={finalData} eventId={eventId} /> */}
 
                 <Card>
                     <CardHeader>
