@@ -1,15 +1,13 @@
 "use client";
 
 import { signIn } from "next-auth/react";
-import { AuthPopover } from "@/components/auth-popover";
+
 import { Button } from "@/components/ui/button";
 import {
     Card,
     CardContent,
-    CardDescription,
     CardFooter,
     CardHeader,
-    CardTitle,
 } from "@/components/ui/card";
 import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
 import Image from "next/image";
@@ -18,7 +16,7 @@ import { useEffect, useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { toast } from "sonner";
-import { AlertCircle } from "lucide-react";
+
 import { PageHeading } from "@/components/page-heading";
 
 interface LoginPageProps {}
@@ -33,16 +31,10 @@ const LoginPage: React.FC<LoginPageProps> = ({}) => {
 
     if (!mounted) return null;
 
-    // const callbackUrl = searchParams.get("callbackUrl");
     const urlError =
         searchParams.get("error") === "OAuthAccountNotLinked"
             ? "Email already in use with a different provider!"
             : "";
-
-    // if (urlError) {
-    //     toast.error(urlError);
-    //     console.log(urlError);
-    // }
 
     const clickHandler = (provider: "google" | "github") => {
         toast.loading("Logging in, Please Wait !!!");

@@ -13,6 +13,12 @@ const MIRAZ_TEAM_DATA = [
     },
 ];
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Miraz Team",
+};
+
 interface MirazTeamPageProps {}
 
 const MirazTeamPage: React.FC<MirazTeamPageProps> = async () => {
