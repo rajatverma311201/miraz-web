@@ -12,6 +12,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { z } from "zod";
 
+import { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+    const sponsors = await db.sponsor.findMany({});
+    return {
+        title: "Miraz Sponsors",
+        description: `Our sponsors: ${sponsors.map((sponsor) => sponsor.name).join(", ")}`,
+    };
+}
+
 interface SponsorsPageProps {}
 
 const SponsorsPage: React.FC<SponsorsPageProps> = async ({}) => {

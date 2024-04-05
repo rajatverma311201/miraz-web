@@ -10,11 +10,41 @@ import {
     CardFooter,
     CardHeader,
 } from "@/components/ui/card";
+import { Metadata } from "next";
 
 interface EventDetailPageProps {
     params: {
         eventId: string;
     };
+}
+
+export async function generateMetadata({
+    params,
+}: EventDetailPageProps): Promise<Metadata> {
+    try {
+        const { eventId } = params;
+        const event = await db.event.findUnique({ where: { id: eventId } });
+
+        return {
+            title: `${event!.name} - Miraz IIT Mandi 2024`,
+            description: event!.description,
+            openGraph: {
+                title: event!.name,
+                description: event!.tagline,
+                images: [
+                    {
+                        url: "https://miraz.live/logo-1.png",
+                        width: 500,
+                        height: 500,
+                        alt: event!.name,
+                    },
+                ],
+            },
+            assets: ["https://miraz.live/logo-1.png"],
+        };
+    } catch (error) {
+        return {};
+    }
 }
 
 const EventDetailPage: React.FC<EventDetailPageProps> = async ({ params }) => {
@@ -79,7 +109,12 @@ const EventDetailPage: React.FC<EventDetailPageProps> = async ({ params }) => {
                             {startTime.toLocaleTimeString("en-gb", timeOptions)}
                             hrs
                             <AiOutlineTeam {...iconOpts} />
-                            {event!.teamMinSize} - {event!.teamMaxSize}
+                            {
+                                // if teamMinSize === teamMaxSize, show only one value
+                                event!.teamMinSize === event!.teamMaxSize
+                                    ? event!.teamMinSize
+                                    : `${event!.teamMinSize} - ${event!.teamMaxSize}`
+                            }
                             <AiOutlineTrophy {...iconOpts} />
                             <div>
                                 <span className="font- mr-2 text-2xl">

@@ -11,6 +11,12 @@ import { getUser } from "@/lib/auth-utils";
 import { LogOut } from "lucide-react";
 import Image from "next/image";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Miraz Profile",
+};
+
 interface ProfilePageProps {}
 
 const ProfilePage: React.FC<ProfilePageProps> = async ({}) => {

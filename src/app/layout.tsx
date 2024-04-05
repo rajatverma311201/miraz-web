@@ -15,7 +15,26 @@ const robotoMono = Roboto_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
     title: "Miraz",
-    description: "Fest of IIT Mandi 2024",
+    description:
+        "Join us at Miraz 2024, the annual extravaganza hosted by IIT Mandi's Student Gymkhana! Experience the perfect blend of sports, cultural, and tech events that will leave you exhilarated. Get ready for a whirlwind of excitement as students from across the country showcase their talents and compete for glory. Don't miss out on the electrifying atmosphere and unforgettable memories at Miraz 2024. Mark your calendars and be part of the action at IIT Mandi's premier college fest!",
+    keywords:
+        "Fest,IIT Mandi,Miraz,2024,College Fest,Student Gymkhana,Nukkad Natak, Stage Play, Mono Act, Battle of Bands, Acoustic Dreams, Tarangini, Aesthetic Avatar, 24-Hour Design Marathon, Vintage Visions, Photo Story, Street Photography, B Roll Challenge, Live sketching, Mr. and Ms. Miraz, General Quiz, Anime Quiz, Sports Quiz, APD, Spin-A-Yarn, Creative writing, Slam poetry, Rant poetry, Cricket, Football, Basketball, Volleyball, Table Tennis, Athletics, Badminton, Lawn Tennis, Hockey, Chess, FIFA, Valorant, BGMI, Wheeling on Mars, Egg Drop Challenge, Tech Themed Photography, Gamejam, DeFused, Build-A-Thon, IPL Auction, CryptoMania, DIY Robo bot Race, EV Modelling, RC Car, Bug Bounty, Manthan,Retro,Games,Sports,Tech,Cult,Lit,IIT Mandi Fest,Indian Institute of Technology Mandi Himachal Pradesh,Yantrik,cg^2d,Heuristics,E-Cell,Robotronics,SAE,SAIC,nirman,Gustaakh Saale,Music,Designauts,PMC,Artgeeks,Qurosity,TSOD,UhlLekh",
+    openGraph: {
+        title: "Miraz IIT Mandi",
+        url: "https://miraz.live",
+        description:
+            "Miraz 2024, the annual extravaganza hosted by IIT Mandi's Student Gymkhana!",
+        images: [
+            {
+                url: "/logo-1.png",
+                alt: "Miraz-Logo",
+            },
+        ],
+    },
+
+    robots: "index, follow",
+
+    metadataBase: new URL("https://miraz.live/"),
 };
 
 const pixelFont = localFont({

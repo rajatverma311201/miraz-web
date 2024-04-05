@@ -1,13 +1,14 @@
 import Link from "next/link";
 import {
     Card,
-    CardDescription,
+    CardContent,
     CardFooter,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
 import { z } from "zod";
 import { EventSchema } from "@/zodSchemas";
+import Image from "next/image";
 
 interface EventCardProps {
     event: z.infer<typeof EventSchema> & { id: string };
@@ -15,17 +16,25 @@ interface EventCardProps {
 
 export const EventCard: React.FC<EventCardProps> = ({ event }) => {
     return (
-        <Link href={`/events/${event.id}`} key={event.id}>
+        <Link className="w-min" href={`/events/${event.id}`} key={event.id}>
             <Card
                 className="min-h-[300px] min-w-[280px] hover:shadow-[0_0px_0px_3px] hover:shadow-primary"
                 key={event.id}
             >
                 <CardHeader>
                     <CardTitle>{event.name}</CardTitle>
-                    <CardDescription>{event.tagline}</CardDescription>
                 </CardHeader>
+                <CardContent>
+                    <Image
+                        className="h-fit w-full"
+                        src={event.image}
+                        alt={event.name}
+                        width={500}
+                        height={500}
+                    />
+                </CardContent>
 
-                <CardFooter>{event.shortSummary}</CardFooter>
+                <CardFooter>&quot;{event.tagline}&quot;</CardFooter>
             </Card>
         </Link>
     );

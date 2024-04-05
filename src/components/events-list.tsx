@@ -77,7 +77,7 @@ export const EventsList: React.FC<EventsListProps> = ({ events }) => {
                     setEventSearch={setEventSearch}
                     setEventTypeFilter={setEventTypeFilter}
                 />
-                <div className="flex w-full flex-wrap justify-center gap-10">
+                <div className="flex flex-wrap justify-center gap-10">
                     {filteredEvents.map((event) => (
                         <EventCard key={event.id} event={event} />
                     ))}

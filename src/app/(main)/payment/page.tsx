@@ -9,6 +9,14 @@ import {
 } from "@/components/ui/card";
 import Image from "next/image";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Miraz Payments",
+    description:
+        "Pay for your registration here, You can pay by UPI or direct bank transfer.",
+};
+
 interface PaymentPageProps {}
 
 const PaymentPage: React.FC<PaymentPageProps> = ({}) => {
