@@ -10,8 +10,45 @@ export const NavigationDrawer: React.FC<NavigationDrawerProps> = async ({}) => {
     const user = await getUser();
 
     return (
-        <NavigationDrawerWrapper>
-            <div className="flex flex-col gap-5 px-5 lg:gap-6">
+        <>
+            <NavigationDrawerWrapper>
+                <div className="flex flex-col gap-5 px-5 lg:gap-6">
+                    {DATA.map((item) => {
+                        if (item.title === "Login/Register" && user) {
+                            return null;
+                        }
+
+                        if (item.title === "Logout" && user) {
+                            return (
+                                <div key={item.href} className="bg-primary">
+                                    <LogoutBtnNavLink key={item.href} />
+                                </div>
+                            );
+                        }
+
+                        if (
+                            ["Profile", "Logout"].includes(item.title) &&
+                            !user
+                        ) {
+                            return null;
+                        }
+
+                        return (
+                            <div key={item.href} className="bg-primary">
+                                <Button
+                                    asChild
+                                    key={item.href}
+                                    variant={"navLink"}
+                                    size={"navLinkSz"}
+                                >
+                                    <Link href={item.href}>{item.title}</Link>
+                                </Button>
+                            </div>
+                        );
+                    })}
+                </div>
+            </NavigationDrawerWrapper>
+            <div className="hidden flex-col gap-5 px-5 lg:gap-6">
                 {DATA.map((item) => {
                     if (item.title === "Login/Register" && user) {
                         return null;
@@ -43,7 +80,7 @@ export const NavigationDrawer: React.FC<NavigationDrawerProps> = async ({}) => {
                     );
                 })}
             </div>
-        </NavigationDrawerWrapper>
+        </>
     );
 };
 
