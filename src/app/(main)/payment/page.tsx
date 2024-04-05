@@ -2,9 +2,12 @@ import { PageHeading } from "@/components/page-heading";
 import {
     Card,
     CardContent,
+    CardDescription,
     CardFooter,
     CardHeader,
+    CardTitle,
 } from "@/components/ui/card";
+import Image from "next/image";
 
 interface PaymentPageProps {}
 
@@ -12,21 +15,54 @@ const PaymentPage: React.FC<PaymentPageProps> = ({}) => {
     return (
         <>
             <PageHeading title="Payment" />
+            <div className="p-2">
+                <Card className="mx-auto max-w-[750px] text-center">
+                    <CardHeader className="">
+                        <CardTitle>Payment Details</CardTitle>
+                        <CardDescription>
+                            Pay via UPI/QR or Bank Transfer
+                        </CardDescription>
+                    </CardHeader>
+                    <CardContent className="space-y-5">
+                        <div>
+                            <Image
+                                src="/upi-qr-code.png"
+                                alt="UPI QR Code"
+                                width={200}
+                                height={200}
+                                className="mx-auto"
+                            />
+                            <p className="mt-4 text-primary">
+                                Scan the QR Code to pay via UPI
+                            </p>
+                            <p>OR</p>
+                            <p className="mb-1 text-xl font-bold uppercase text-primary">
+                                UPI ID
+                            </p>
+                            <p className="text-xl">36299062221@sbi</p>
+                        </div>
 
-            <Card className="mx-auto w-max text-center">
-                <CardHeader></CardHeader>
-                <CardContent className="flex flex-col gap-8 px-20">
-                    {paymentDetails.map((detail, idx) => {
-                        return (
-                            <div key={idx} className="text-3xl">
-                                <p className="mb-2 ">{detail.key}</p>
-                                <p>{detail.value}</p>
-                            </div>
-                        );
-                    })}
-                </CardContent>
-                <CardFooter></CardFooter>
-            </Card>
+                        <hr />
+
+                        <div className="flex flex-col gap-5 px-10">
+                            {paymentDetails.map((detail, idx) => {
+                                return (
+                                    <div
+                                        key={idx}
+                                        className="text-lg sm:text-xl"
+                                    >
+                                        <p className="mb-1 font-bold uppercase text-primary">
+                                            {detail.key}
+                                        </p>
+                                        <p>{detail.value}</p>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </CardContent>
+                    <CardFooter></CardFooter>
+                </Card>
+            </div>
         </>
     );
 };

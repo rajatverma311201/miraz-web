@@ -59,7 +59,7 @@ model Account {
 }
 
 model Event {
-  id                   String   @id @default(auto()) @map("_id") @db.ObjectId
+  id                   String    @id @default(auto()) @map("_id") @db.ObjectId
   name                 String
   type                 EventType @default(SPORTS)
   club                 String
@@ -71,8 +71,8 @@ model Event {
   rulebookLink         String
   problemStatementLink String
   submissionLink       String
-  createdAt            DateTime @default(now())
-  updatedAt            DateTime @updatedAt
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
   startTime            DateTime
   endTime              DateTime
   isLive               Boolean
@@ -90,11 +90,10 @@ model Coordinator {
 }
 
 model Prize {
-  id     String @id @default(auto()) @map("_id") @db.ObjectId
-  first  Int
-  second Int
-  third  Int
-
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  first   Int
+  second  Int
+  third   Int
   eventId String @unique @db.ObjectId
 }
 
