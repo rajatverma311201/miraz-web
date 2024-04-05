@@ -3,11 +3,7 @@
 import { EventForm } from "@/components/admin/event-form";
 
 const EventFormPage = () => {
-    return (
-        <div className="flex justify-center">
-            <EventForm />
-        </div>
-    );
+    return <div className="flex justify-center">{/* <EventForm /> */}</div>;
 };
 
 export default EventFormPage;

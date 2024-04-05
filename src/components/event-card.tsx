@@ -9,9 +9,10 @@ import {
 import { z } from "zod";
 import { EventSchema } from "@/zodSchemas";
 import Image from "next/image";
+import { Event } from "@prisma/client";
 
 interface EventCardProps {
-    event: z.infer<typeof EventSchema> & { id: string };
+    event: Event;
 }
 
 export const EventCard: React.FC<EventCardProps> = ({ event }) => {

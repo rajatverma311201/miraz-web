@@ -30,8 +30,7 @@ export const EventForm: React.FC<EventFormProps> = ({ event, eventId }) => {
         name: "",
         club: "",
         tagline: "",
-        shortSummary: "",
-        longSummary: "",
+
         description: "",
         image: "",
         rulebookLink: "",
@@ -46,7 +45,8 @@ export const EventForm: React.FC<EventFormProps> = ({ event, eventId }) => {
 
     const form = useForm<z.infer<typeof EventFormSchema>>({
         resolver: zodResolver(EventFormSchema),
-        defaultValues: event || defValues,
+        // defaultValues: event || defValues,
+        defaultValues: defValues,
     });
 
     const onSubmit = async (values: z.infer<typeof EventFormSchema>) => {
@@ -109,24 +109,6 @@ export const EventForm: React.FC<EventFormProps> = ({ event, eventId }) => {
                                     fieldName="tagline"
                                     label="Tagline"
                                     placeholder="Enter the tagline"
-                                />
-                            </div>
-
-                            <div className="grid grid-cols-2 gap-4">
-                                <ModelFormField
-                                    form={form}
-                                    fieldName="shortSummary"
-                                    label="Short Summary"
-                                    placeholder="Enter the short summary"
-                                    isTextArea
-                                />
-
-                                <ModelFormField
-                                    form={form}
-                                    fieldName="longSummary"
-                                    label="Long Summary"
-                                    placeholder="Enter the long summary"
-                                    isTextArea
                                 />
                             </div>
 

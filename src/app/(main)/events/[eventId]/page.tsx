@@ -50,8 +50,8 @@ export async function generateMetadata({
 const EventDetailPage: React.FC<EventDetailPageProps> = async ({ params }) => {
     const { eventId } = params;
     const event = await db.event.findUnique({ where: { id: eventId } });
-    const startTime = new Date(event!.startTime);
-    const endTime = new Date(event!.endTime);
+    // const startTime = new Date(event!.startTime);
+    // const endTime = new Date(event!.endTime);
     const dateOptions = {
         year: "numeric",
         month: "long",
@@ -103,11 +103,11 @@ const EventDetailPage: React.FC<EventDetailPageProps> = async ({ params }) => {
                         </CardContent>
 
                         <CardFooter className="mt- grid grid-cols-[50px_1fr]  items-center gap-4 text-lg font-light md:text-xl ">
-                            <LuCalendarClock {...iconOpts} />
+                            {/* <LuCalendarClock {...iconOpts} />
                             {startTime.toLocaleDateString("en-in", dateOptions)}
                             {", "}
                             {startTime.toLocaleTimeString("en-gb", timeOptions)}
-                            hrs
+                            hrs */}
                             <AiOutlineTeam {...iconOpts} />
                             {
                                 // if teamMinSize === teamMaxSize, show only one value
