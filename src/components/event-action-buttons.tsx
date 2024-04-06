@@ -8,7 +8,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 interface EventActionButtonsProps {
-    rulebookLink: string;
+    rulebookLink?: string;
     registerLink?: string;
     submissionLink?: string;
     problemStatementLink?: string;
@@ -26,7 +26,7 @@ export const EventActionButtons: React.FC<EventActionButtonsProps> = ({
             if (registerLink && event.key.toLowerCase() === "o") {
                 router.push(registerLink);
             } else if (event.key.toLowerCase() === "x") {
-                router.push(rulebookLink);
+                rulebookLink && router.push(rulebookLink);
             }
         }
 
@@ -76,7 +76,7 @@ export const EventActionButtons: React.FC<EventActionButtonsProps> = ({
                             key={link.text}
                             className={link.className}
                         >
-                            <Link href={link.href}>
+                            <Link target="_blank" href={link.href}>
                                 {link.icon}
                                 {link.text}
                             </Link>

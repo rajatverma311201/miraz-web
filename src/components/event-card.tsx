@@ -6,10 +6,12 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
-import { z } from "zod";
-import { EventSchema } from "@/zodSchemas";
+
 import Image from "next/image";
 import { Event } from "@prisma/client";
+import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
+import { EventStatusBadge } from "./event-status-badge";
 
 interface EventCardProps {
     event: Event;
@@ -19,11 +21,14 @@ export const EventCard: React.FC<EventCardProps> = ({ event }) => {
     return (
         <Link className="w-min" href={`/events/${event.id}`} key={event.id}>
             <Card
-                className="min-h-[300px] min-w-[280px] hover:shadow-[0_0px_0px_3px] hover:shadow-primary"
+                className="relative min-h-[300px] min-w-[280px] hover:shadow-[0_0px_0px_3px] hover:shadow-primary"
                 key={event.id}
             >
-                <CardHeader>
-                    <CardTitle>{event.name}</CardTitle>
+                <EventStatusBadge status={event.status as string} />
+                <CardHeader className="pt-8">
+                    <CardTitle className="text-cyan-300">
+                        {event.name}
+                    </CardTitle>
                 </CardHeader>
                 <CardContent>
                     <Image
