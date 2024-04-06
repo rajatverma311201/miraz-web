@@ -11,6 +11,7 @@ import {
     CardHeader,
 } from "@/components/ui/card";
 import { Metadata } from "next";
+import { EventStatusBadge } from "@/components/event-status-badge";
 
 interface EventDetailPageProps {
     params: {
@@ -85,12 +86,13 @@ const EventDetailPage: React.FC<EventDetailPageProps> = async ({ params }) => {
                 <h1 className="transfor text-center text-5xl font-medium uppercase text-orange-500">
                     {event!.name}
                 </h1>
-                <p className="mt-6 text-center italic">
+                <p className="mt-6 text-center text-lg italic">
                     &quot;{event!.tagline}&quot;
                 </p>
 
                 <div className="my-12 flex flex-col items-center justify-center gap-12 px-5 md:px-10 lg:flex-row lg:gap-32 lg:px-24">
-                    <Card>
+                    <Card className="relative">
+                        <EventStatusBadge status={event!.status as string} />
                         <CardHeader />
                         <CardContent>
                             <Image
@@ -126,8 +128,10 @@ const EventDetailPage: React.FC<EventDetailPageProps> = async ({ params }) => {
                     </Card>
 
                     <div>
-                        <p className="mb-4 text-xl">{event!.club}</p>
-                        <p className="text-base font-light md:text-lg">
+                        <p className="mb-4 text-center text-3xl font-semibold uppercase text-primary">
+                            {event!.club}
+                        </p>
+                        <p className="text-base font-light md:text-xl">
                             {event!.description}
                         </p>
                     </div>
@@ -135,7 +139,7 @@ const EventDetailPage: React.FC<EventDetailPageProps> = async ({ params }) => {
                 <div className="flex flex-wrap items-center justify-center gap-10 lg:gap-20 ">
                     <EventActionButtons
                         // registerLink="/"
-                        rulebookLink={event!.rulebookLink}
+                        rulebookLink={event!.rulebookLink as string | undefined}
                     />
                 </div>
             </div>

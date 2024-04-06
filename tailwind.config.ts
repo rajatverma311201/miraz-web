@@ -70,6 +70,26 @@ const config = {
                     DEFAULT: "hsl(var(--card))",
                     foreground: "hsl(var(--card-foreground))",
                 },
+                primaryRed: {
+                    DEFAULT: "hsl(var(--primary-red))",
+                    foreground: "hsl(var(--primary-foreground))",
+                },
+                primaryGreen: {
+                    DEFAULT: "hsl(var(--primary-green))",
+                    foreground: "hsl(var(--primary-foreground))",
+                },
+                primaryOrange: {
+                    DEFAULT: "hsl(var(--primary-orange))",
+                    foreground: "hsl(var(--primary-foreground))",
+                },
+                primaryViolet: {
+                    DEFAULT: "hsl(var(--primary-violet))",
+                    foreground: "hsl(var(--primary-foreground))",
+                },
+                primaryYellow: {
+                    DEFAULT: "hsl(var(--primary-yellow))",
+                    foreground: "hsl(var(--primary-foreground))",
+                },
             },
             borderRadius: {
                 lg: "var(--radius)",

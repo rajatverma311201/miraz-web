@@ -9,6 +9,12 @@ body {
 
 @layer base {
     :root {
+        --primary-red: 0 72.2% 50.6%;
+        --primary-green: 142.1 76.2% 36.3%;
+        --primary-orange: 24.6 95% 53.1%;
+        --primary-violet: 262.1 83.3% 57.8%;
+        --primary-yellow: 47.9 95.8% 53.1%;
+        --primary-rose: 346.8 77.2% 49.8%;
         --background: 0 0% 100%;
         --foreground: 222.2 84% 4.9%;
         --card: 0 0% 100%;
@@ -32,6 +38,12 @@ body {
     }
 
     .dark {
+        --primary-red: 0 72.2% 50.6%;
+        --primary-green: 142.1 76.2% 36.3%;
+        --primary-orange: 24.6 95% 53.1%;
+        --primary-violet: 262.1 83.3% 57.8%;
+        --primary-yellow: 47.9 95.8% 53.1%;
+        --primary-rose: 346.8 77.2% 49.8%;
         --background: 222.2 84% 4.9%;
         --foreground: 210 40% 98%;
         /* --card: 222.2 84% 4.9%; */
