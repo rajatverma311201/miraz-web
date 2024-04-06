@@ -1,3 +1,5 @@
+import Image from "next/image";
+import background from "@/../public/background.jpg";
 import { BackgroundBeams } from "@/components/background-beams";
 
 interface MainLayoutProps {
@@ -6,10 +8,10 @@ interface MainLayoutProps {
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
     return (
-        <div className="">
+        <>
             <BackgroundBeams />
-            {children}
-        </div>
+            <div className="">{children}</div>
+        </>
     );
 };
 export default MainLayout;
