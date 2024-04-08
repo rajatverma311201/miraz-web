@@ -19,8 +19,7 @@ const buttonVariants = cva(
                     "bg-secondary text-secondary-foreground hover:bg-secondary/80",
                 ghost: "hover:bg-accent hover:text-accent-foreground",
                 link: "text-primary underline-offset-4 hover:underline",
-                eventAction:
-                    "border-x-4 bg-transparent text-xl text-white hover:scale-125 hover:bg-transparent",
+                eventAction: "border-none text-xl hover:scale-125 ",
                 navLink:
                     "w-full -translate-x-1 -translate-y-1 rounded-none bg-secondary py-5 text-base  font-normal uppercase hover:-translate-x-1.5 hover:-translate-y-1.5 active:translate-x-0 active:translate-y-0  h-12",
             },

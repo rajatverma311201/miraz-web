@@ -10,8 +10,8 @@ import {
 import Image from "next/image";
 import { Event } from "@prisma/client";
 import { Badge } from "@/components/ui/badge";
-import { cn } from "@/lib/utils";
 import { EventStatusBadge } from "./event-status-badge";
+import { getImageLink } from "@/lib/utils";
 
 interface EventCardProps {
     event: Event;
@@ -33,7 +33,7 @@ export const EventCard: React.FC<EventCardProps> = ({ event }) => {
                 <CardContent>
                     <Image
                         className="h-fit w-full"
-                        src={event.image}
+                        src={getImageLink(event.image)}
                         alt={event.name}
                         width={500}
                         height={500}

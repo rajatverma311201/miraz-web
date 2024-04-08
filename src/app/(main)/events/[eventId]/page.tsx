@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/card";
 import { Metadata } from "next";
 import { EventStatusBadge } from "@/components/event-status-badge";
+import { getImageLink } from "@/lib/utils";
 
 interface EventDetailPageProps {
     params: {
@@ -53,6 +54,9 @@ const EventDetailPage: React.FC<EventDetailPageProps> = async ({ params }) => {
     const event = await db.event.findUnique({ where: { id: eventId } });
     // const startTime = new Date(event!.startTime);
     // const endTime = new Date(event!.endTime);
+
+    const eventImage = getImageLink(event!.image);
+
     const dateOptions = {
         year: "numeric",
         month: "long",
@@ -73,7 +77,7 @@ const EventDetailPage: React.FC<EventDetailPageProps> = async ({ params }) => {
         <>
             <Image
                 className="-z-10 opacity-25 blur-sm"
-                src={event!.image}
+                src={eventImage}
                 alt="event"
                 quality={100}
                 fill
@@ -91,13 +95,13 @@ const EventDetailPage: React.FC<EventDetailPageProps> = async ({ params }) => {
                 </p>
 
                 <div className="my-12 flex flex-col items-center justify-center gap-12 px-5 md:px-10 lg:flex-row lg:gap-32 lg:px-24">
-                    <Card className="relative">
+                    <Card className="relative w-full">
                         <EventStatusBadge status={event!.status as string} />
                         <CardHeader />
                         <CardContent>
                             <Image
                                 className="h-auto w-full rounded lg:w-96"
-                                src={event!.image}
+                                src={eventImage}
                                 alt="event"
                                 width={500}
                                 height={500}
@@ -128,19 +132,30 @@ const EventDetailPage: React.FC<EventDetailPageProps> = async ({ params }) => {
                     </Card>
 
                     <div>
-                        <p className="mb-4 text-center text-3xl font-semibold uppercase text-primary">
-                            {event!.club}
-                        </p>
-                        <p className="text-base font-light md:text-xl">
-                            {event!.description}
-                        </p>
+                        <div className="pb-16">
+                            <p className="mb-4 text-3xl font-semibold uppercase text-primary">
+                                {event!.club}
+                            </p>
+                            <p className="text-base font-light md:text-xl">
+                                {event!.description}
+                            </p>
+                        </div>
+                        <div className="flex flex-wrap items-center justify-center gap-10">
+                            <EventActionButtons
+                                submissionLink={
+                                    event?.submissionLink as string | undefined
+                                }
+                                problemStatementLink={
+                                    event?.problemStatementLink as
+                                        | string
+                                        | undefined
+                                }
+                                rulebookLink={
+                                    event!.rulebookLink as string | undefined
+                                }
+                            />
+                        </div>
                     </div>
-                </div>
-                <div className="flex flex-wrap items-center justify-center gap-10 lg:gap-20 ">
-                    <EventActionButtons
-                        // registerLink="/"
-                        rulebookLink={event!.rulebookLink as string | undefined}
-                    />
                 </div>
             </div>
         </>
