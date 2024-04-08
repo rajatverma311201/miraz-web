@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { AboutContent } from "@/components/about-content";
+import Link from "next/link";
 
 const arr = ["Events", "Sponsors", "Team", "Keytalks", "Faq"];
 const len = arr.length;
@@ -82,13 +83,24 @@ const HomeSection1 = () => {
                 transition={{ scale: { duration: 0.5 } }}
                 className="flex flex-col items-center justify-center space-y-4"
             >
-                <div className="text-xl opacity-50  md:text-3xl">
+                <Link
+                    href={`/${arr.at(count - 1)!.toLowerCase()}`}
+                    className="text-xl opacity-50  md:text-3xl"
+                >
                     {arr.at(count - 1)}
-                </div>
-                <div className="text-3xl md:text-6xl">{arr.at(count)}</div>
-                <div className="text-xl opacity-50 md:text-3xl">
+                </Link>
+                <Link
+                    href={`/${arr.at(count)!.toLowerCase()}`}
+                    className="text-3xl md:text-6xl"
+                >
+                    {arr.at(count)}
+                </Link>
+                <Link
+                    href={`/${arr.at((count + 1) % len)!.toLowerCase()}`}
+                    className="text-xl opacity-50 md:text-3xl"
+                >
                     {arr.at((count + 1) % len)}
-                </div>
+                </Link>
             </motion.div>
         </>
     );

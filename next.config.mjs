@@ -14,6 +14,10 @@ const nextConfig = {
                 protocol: "https",
                 hostname: "www.iitmandicatalyst.in",
             },
+            {
+                protocol: "https",
+                hostname: "drive.google.com",
+            },
         ],
     },
 };

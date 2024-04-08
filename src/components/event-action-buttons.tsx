@@ -2,10 +2,7 @@
 
 import Link from "next/link";
 import { Button } from "./ui/button";
-import { PiCircleBold } from "react-icons/pi";
-import { ImCross } from "react-icons/im";
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { FaBook } from "react-icons/fa";
 
 interface EventActionButtonsProps {
     rulebookLink?: string;
@@ -19,48 +16,27 @@ export const EventActionButtons: React.FC<EventActionButtonsProps> = ({
     submissionLink,
     problemStatementLink,
 }) => {
-    const router = useRouter();
-
-    useEffect(() => {
-        function handleKeyPress(event: KeyboardEvent) {
-            if (registerLink && event.key.toLowerCase() === "o") {
-                router.push(registerLink);
-            } else if (event.key.toLowerCase() === "x") {
-                rulebookLink && router.push(rulebookLink);
-            }
-        }
-
-        document.addEventListener("keypress", handleKeyPress);
-
-        return () => {
-            document.removeEventListener("keypress", handleKeyPress);
-        };
-    });
-
-    const iconClassName = "text-lg mr-4";
-
     const LINKS_DATA = [
         {
             text: "Register",
             href: registerLink,
-            icon: <PiCircleBold className={iconClassName} />,
-            className: "border-primary",
+            className: "bg-primary",
         },
         {
             text: "RuleBook",
             href: rulebookLink,
-            icon: <ImCross className={iconClassName} />,
-            className: "border-destructive",
+            icon: <FaBook />,
+            className: "bg-primaryRed",
         },
         {
             text: "Submission",
             href: submissionLink,
-            icon: <ImCross className={iconClassName} />,
+            className: "bg-primaryGreen",
         },
         {
             text: "Problem Statement",
             href: problemStatementLink,
-            icon: <ImCross className={iconClassName} />,
+            className: "bg-primaryViolet",
         },
     ];
 
@@ -70,15 +46,15 @@ export const EventActionButtons: React.FC<EventActionButtonsProps> = ({
                 return (
                     link.href && (
                         <Button
+                            className={`w-min text-white ${link.className}`}
                             size={"lg"}
                             asChild
                             variant={"eventAction"}
                             key={link.text}
-                            className={link.className}
                         >
                             <Link target="_blank" href={link.href}>
                                 {link.icon}
-                                {link.text}
+                                <p className="ml-2">{link.text}</p>
                             </Link>
                         </Button>
                     )
