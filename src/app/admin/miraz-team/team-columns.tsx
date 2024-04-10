@@ -8,17 +8,9 @@ import Link from "next/link";
 import { DeleteAlertDialog } from "@/components/delete-alert-dialog";
 import { deleteTeamMember } from "@/actions/team_member";
 import { toast } from "sonner";
+import { MirazTeamMember } from "@prisma/client";
 
-export type MirazTeam = {
-    id: string;
-    name: string;
-    email: string;
-    role: string;
-    createdAt: Date;
-    updatedAt: Date;
-};
-
-export const teamColumns: ColumnDef<MirazTeam>[] = [
+export const teamColumns: ColumnDef<MirazTeamMember>[] = [
     {
         accessorKey: "name",
         header: "Name",
@@ -49,7 +41,9 @@ export const teamColumns: ColumnDef<MirazTeam>[] = [
                     onSuccess?.();
                 } catch (error) {
                     console.error(error);
-                    toast.error("Failed to remove team member", { id: toastId });
+                    toast.error("Failed to remove team member", {
+                        id: toastId,
+                    });
                 }
             };
 

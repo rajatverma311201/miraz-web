@@ -5,31 +5,22 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
-import {
-    Form,
-    FormControl,
-    FormDescription,
-    FormField,
-    FormItem,
-    FormLabel,
-    FormMessage,
-} from "@/components/ui/form";
+import { Form } from "@/components/ui/form";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-import { Textarea } from "@/components/ui/textarea";
 import { TeamMemberFormSchema } from "@/zodSchemas";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { Loader2 } from "lucide-react";
 import React from "react";
 
-import { Input } from "@/components/ui/input";
 import { addTeamMember, updateTeamMember } from "@/actions/team_member";
 import { ModelFormField } from "../model-form-field";
+import { MirazTeamMember } from "@prisma/client";
 
 interface TeamFormProps {
-    member?: z.infer<typeof TeamMemberFormSchema>;
+    member?: MirazTeamMember;
     memberId?: string;
 }
 
@@ -39,16 +30,14 @@ export const TeamMemberForm: React.FC<TeamFormProps> = ({
 }) => {
     const router = useRouter();
 
-    const defValues: z.infer<typeof TeamMemberFormSchema> = memberId
-        ? member!
-        : {
-              name: "",
-              email: "",
-              role: "",
-              image: "",
-              linkedinLink: "",
-              instagramLink: "",
-          };
+    const defValues = {
+        name: member?.name || "",
+        email: member?.email || "",
+        role: member?.role || "",
+        image: member?.image || "",
+        linkedinLink: member?.linkedinLink || "",
+        instagramLink: member?.instagramLink || "",
+    };
 
     const form = useForm<z.infer<typeof TeamMemberFormSchema>>({
         resolver: zodResolver(TeamMemberFormSchema),
