@@ -108,27 +108,7 @@ const EventDetailPage: React.FC<EventDetailPageProps> = async ({ params }) => {
                             />
                         </CardContent>
 
-                        <CardFooter className="mt- grid grid-cols-[50px_1fr]  items-center gap-4 text-lg font-light md:text-xl ">
-                            {/* <LuCalendarClock {...iconOpts} />
-                            {startTime.toLocaleDateString("en-in", dateOptions)}
-                            {", "}
-                            {startTime.toLocaleTimeString("en-gb", timeOptions)}
-                            hrs */}
-                            <AiOutlineTeam {...iconOpts} />
-                            {
-                                // if teamMinSize === teamMaxSize, show only one value
-                                event!.teamMinSize === event!.teamMaxSize
-                                    ? event!.teamMinSize
-                                    : `${event!.teamMinSize} - ${event!.teamMaxSize}`
-                            }
-                            <AiOutlineTrophy {...iconOpts} />
-                            <div>
-                                <span className="font- mr-2 text-2xl">
-                                    {RUPEE_ICON}
-                                </span>
-                                {event!.prizeWorth}
-                            </div>
-                        </CardFooter>
+                        <CardFooter></CardFooter>
                     </Card>
 
                     <div>
