@@ -116,11 +116,6 @@ const DATA = [
         description: "Payment Details",
         href: "/payment",
     },
-    {
-        title: "FAQ",
-        description: "Contact us",
-        href: "/faq",
-    },
 
     {
         title: "Login/Register",

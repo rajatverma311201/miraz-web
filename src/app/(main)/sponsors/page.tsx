@@ -13,6 +13,7 @@ import Link from "next/link";
 import { z } from "zod";
 
 import { Metadata } from "next";
+import { getImageLink } from "@/lib/utils";
 
 export async function generateMetadata(): Promise<Metadata> {
     const sponsors = await db.sponsor.findMany({});
@@ -30,7 +31,7 @@ const SponsorsPage: React.FC<SponsorsPageProps> = async ({}) => {
     return (
         <>
             <PageHeading title="Our Sponsors" />
-            <div className=" flex flex-wrap gap-5 ">
+            <div className=" flex flex-wrap items-center justify-center gap-5 md:gap-10">
                 {sponsors.map((sponsor) => (
                     <SponsorCard
                         key={sponsor.id}
@@ -55,6 +56,8 @@ const SponsorCard: React.FC<SponsorCardProps> = ({
     image,
     link,
 }) => {
+    const imgLink = getImageLink(image);
+
     return (
         <Link href={link} target="_blank">
             <Card className="w-80 hover:scale-105 hover:outline hover:outline-2 hover:outline-primary">
@@ -65,7 +68,7 @@ const SponsorCard: React.FC<SponsorCardProps> = ({
                     </CardDescription>
                 </CardHeader>
                 <CardContent className="flex items-center justify-center">
-                    <Image src={image} alt={name} width={200} height={200} />
+                    <Image src={imgLink} alt={name} width={200} height={200} />
                 </CardContent>
             </Card>
         </Link>
