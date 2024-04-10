@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { AboutContent } from "@/components/about-content";
 import Link from "next/link";
 
-const arr = ["Events", "Sponsors", "Team", "Keytalks", "Faq"];
+const arr = ["Events", "Sponsors", "Team", "Keytalks"];
 const len = arr.length;
 
 export default function HomePage() {
