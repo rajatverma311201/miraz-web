@@ -8,7 +8,7 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
+import { cn, getImageLink } from "@/lib/utils";
 import { MirazTeamMemberSchema } from "@/zodSchemas";
 import { MirazTeamMember } from "@prisma/client";
 import { motion } from "framer-motion";
@@ -42,6 +42,8 @@ export const MirazTeamMemberCard: React.FC<MirazTeamMemberCardProps> = ({
     const randomDurationClass =
         durationClasses[Math.floor(Math.random() * durationClasses.length)];
 
+    const imageLink = getImageLink(image as string);
+
     return (
         <motion.div
             className="group bg-primary "
@@ -70,13 +72,15 @@ export const MirazTeamMemberCard: React.FC<MirazTeamMemberCardProps> = ({
                     <CardTitle className="uppercas">{name}</CardTitle>
                 </CardHeader>
                 <CardContent className="">
-                    <Image
-                        height={500}
-                        width={500}
-                        src={image || "/logo-1.png"}
-                        alt="team member"
-                        className="z-50 h-auto w-full"
-                    />
+                    <div className="mx-auto aspect-square h-52  overflow-hidden rounded-full outline outline-2 outline-offset-4 outline-secondary">
+                        <Image
+                            height={500}
+                            width={500}
+                            src={imageLink || "/logo-1.png"}
+                            alt="team member"
+                            className="z-50  h-full w-full  object-cover"
+                        />
+                    </div>
                 </CardContent>
 
                 <CardFooter className=" flex flex-col gap-2">

@@ -10,7 +10,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
     return (
         <>
             <BackgroundBeams />
-            <div className="">{children}</div>
+            <div className=" pb-10">{children}</div>
         </>
     );
 };
