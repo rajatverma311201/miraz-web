@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { MirazTeamMemberSchema } from "@/zodSchemas";
+import { MirazTeamMember } from "@prisma/client";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,8 +18,7 @@ import { FaInstagram, FaLinkedinIn } from "react-icons/fa6";
 import { IoMailOutline } from "react-icons/io5";
 import { z } from "zod";
 
-interface MirazTeamMemberCardProps
-    extends z.infer<typeof MirazTeamMemberSchema> {}
+interface MirazTeamMemberCardProps extends Partial<MirazTeamMember> {}
 
 export const MirazTeamMemberCard: React.FC<MirazTeamMemberCardProps> = ({
     name,
@@ -73,7 +73,7 @@ export const MirazTeamMemberCard: React.FC<MirazTeamMemberCardProps> = ({
                     <Image
                         height={500}
                         width={500}
-                        src={image}
+                        src={image || "/logo-1.png"}
                         alt="team member"
                         className="z-50 h-auto w-full"
                     />
@@ -82,36 +82,42 @@ export const MirazTeamMemberCard: React.FC<MirazTeamMemberCardProps> = ({
                 <CardFooter className=" flex flex-col gap-2">
                     <p className="uppercase">{role}</p>
                     <div className="flex justify-center gap-4">
-                        <Button
-                            className="asChild rounded-none text-2xl "
-                            size={"icon"}
-                            variant={"outline"}
-                            asChild
-                        >
-                            <Link href={`mailto:${email}`}>
-                                <IoMailOutline />
-                            </Link>
-                        </Button>
-                        <Button
-                            className="asChild rounded-none text-xl"
-                            size={"icon"}
-                            variant={"outline"}
-                            asChild
-                        >
-                            <Link href={linkedinLink}>
-                                <FaLinkedinIn />
-                            </Link>
-                        </Button>
-                        <Button
-                            className="asChild rounded-none text-2xl "
-                            size={"icon"}
-                            variant={"outline"}
-                            asChild
-                        >
-                            <Link href={instagramLink}>
-                                <FaInstagram />
-                            </Link>
-                        </Button>
+                        {email && (
+                            <Button
+                                className="asChild rounded-none text-2xl "
+                                size={"icon"}
+                                variant={"outline"}
+                                asChild
+                            >
+                                <Link href={`mailto:${email}` || "#"}>
+                                    <IoMailOutline />
+                                </Link>
+                            </Button>
+                        )}
+                        {linkedinLink && (
+                            <Button
+                                className="asChild rounded-none text-xl"
+                                size={"icon"}
+                                variant={"outline"}
+                                asChild
+                            >
+                                <Link href={linkedinLink}>
+                                    <FaLinkedinIn />
+                                </Link>
+                            </Button>
+                        )}
+                        {instagramLink && (
+                            <Button
+                                className="asChild rounded-none text-2xl "
+                                size={"icon"}
+                                variant={"outline"}
+                                asChild
+                            >
+                                <Link href={instagramLink}>
+                                    <FaInstagram />
+                                </Link>
+                            </Button>
+                        )}
                     </div>
                 </CardFooter>
             </Card>

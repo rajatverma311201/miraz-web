@@ -2,17 +2,6 @@ import { MirazTeamMemberCard } from "@/components/miraz-team-card";
 import { PageHeading } from "@/components/page-heading";
 import { db } from "@/lib/db";
 
-const MIRAZ_TEAM_DATA = [
-    {
-        name: "Rajat Verma",
-        email: "xyz@abc.com",
-        role: "Developer",
-        image: "https://avatars.githubusercontent.com/u/76511373?s=400&u=6005dd23984a52f9edc75baffb5481fefa18cff2&v=4",
-        linkedinLink: "test link",
-        instagramLink: "test link",
-    },
-];
-
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
