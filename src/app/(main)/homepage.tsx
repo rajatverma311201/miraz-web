@@ -32,7 +32,7 @@ export default function HomePage() {
 const SectionWrapper = ({ children }: { children: React.ReactNode }) => {
     return (
         <>
-            <div className="grid min-h-screen place-content-center lg:h-screen lg:snap-center">
+            <div className="grid min-h-screen lg:h-screen lg:snap-center">
                 {children}
             </div>
         </>
@@ -72,12 +72,12 @@ const HomeSection1 = () => {
 
     const LOGO_DATA = [
         {
-            src: "/rannneeti_logo.jpeg",
-            alt: "Rannneeti Logo",
-        },
-        {
             src: "/exodia_logo.jpeg",
             alt: "Exodia Logo",
+        },
+        {
+            src: "/rannneeti_logo.jpeg",
+            alt: "Rannneeti Logo",
         },
         {
             src: "/xpecto_logo.png",
@@ -87,7 +87,14 @@ const HomeSection1 = () => {
 
     return (
         <div className="min-h-screen">
-            <div className="my-10 mt-20 flex flex-wrap justify-center gap-5 md:mt-10 md:gap-10">
+            <Image
+                className="hidden md:m-8 md:inline"
+                src="/logo-1.png"
+                height={150}
+                width={150}
+                alt="Miraz Logo"
+            />
+            <div className="mt-20 flex flex-wrap justify-center gap-5 md:mt-0 md:gap-10">
                 {LOGO_DATA.map((data, index) => {
                     return (
                         <Image
@@ -101,7 +108,8 @@ const HomeSection1 = () => {
                     );
                 })}
             </div>
-            <div className="mt-28">
+
+            <div className="mt-24 lg:mt-12">
                 <h1
                     className={
                         " mb-10 text-center text-7xl font-medium md:text-9xl lg:text-[10rem]"
