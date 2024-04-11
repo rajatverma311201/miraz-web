@@ -74,8 +74,8 @@ export const MirazTeamMemberCard: React.FC<MirazTeamMemberCardProps> = ({
                 <CardContent className="">
                     <div className="mx-auto aspect-square h-52  overflow-hidden rounded-full outline outline-2 outline-offset-4 outline-secondary">
                         <Image
-                            height={500}
-                            width={500}
+                            height={1000}
+                            width={1000}
                             src={imageLink || "/logo-1.png"}
                             alt="team member"
                             className="z-50  h-full w-full  object-cover"
