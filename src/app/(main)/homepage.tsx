@@ -13,7 +13,7 @@ const len = arr.length;
 export default function HomePage() {
     const sections = [
         <HomeSection1 key={1} />,
-        <HomeSection3 key={3} />,
+        // <HomeSection3 key={3} />,
         <HomeSection2 key={2} />,
     ];
 
