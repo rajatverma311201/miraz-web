@@ -19,8 +19,10 @@ export const metadata: Metadata = {
         "Pay for your registration here, You can pay by UPI or direct bank transfer.",
 };
 
-const registrationFormLink =
-    "https://drive.google.com/drive/folders/1bKZxvdYZzLnA7ajOiSaMkA7E0ZJPd1uB?usp=drive_link";
+// const registrationFormLink =
+//     "https://drive.google.com/drive/folders/1bKZxvdYZzLnA7ajOiSaMkA7E0ZJPd1uB?usp=drive_link";
+
+const registrationFormLink = "https://linktr.ee/Miraz_IIT_MANDI";
 
 const sportsFeeStructureLink =
     "https://drive.google.com/file/d/1DADsT-blh00wcsNQwyt7Uifo6RkppqEN/view?usp=sharing";
