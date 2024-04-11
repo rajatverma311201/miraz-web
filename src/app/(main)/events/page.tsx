@@ -15,7 +15,9 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const EventsPage: React.FC<EventsPageProps> = async ({}) => {
-    const events = await db.event.findMany();
+    const events = (await db.event.findMany()).sort(
+        (a, b) => -a.image.localeCompare(b.image),
+    );
 
     return (
         <>

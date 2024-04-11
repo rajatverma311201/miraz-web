@@ -51,7 +51,7 @@ const SponsorsPage: React.FC<SponsorsPageProps> = async ({}) => {
     return (
         <>
             <PageHeading title="Our Sponsors" />
-            <div className=" flex flex-wrap items-center justify-center gap-5 md:gap-10">
+            <div className=" flex flex-wrap items-center justify-center gap-5 pb-10 md:gap-10">
                 {sponsors.map((sponsor) => (
                     <SponsorCard
                         key={sponsor.name}
