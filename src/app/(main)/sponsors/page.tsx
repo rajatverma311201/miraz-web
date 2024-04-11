@@ -14,9 +14,28 @@ import { z } from "zod";
 
 import { Metadata } from "next";
 import { getImageLink } from "@/lib/utils";
+import { Sponsor } from "@prisma/client";
+
+const SPON_DATA = [
+    {
+        id: "abhi-bus",
+        name: "Abhi Bus",
+        type: "Travel Partner",
+        image: "/sponsors/abhi-bus.png",
+        link: "https://www.abhibus.com/",
+    },
+    {
+        id: "ihoik",
+        name: "IHOIK",
+        type: "Digital Media Partner",
+        image: "/sponsors/ihoik.png",
+        link: "https://www.ihoik.com/",
+    },
+];
 
 export async function generateMetadata(): Promise<Metadata> {
     const sponsors = await db.sponsor.findMany({});
+    sponsors.push(...(SPON_DATA as Sponsor[]));
     return {
         title: "Miraz Sponsors",
         description: `Our sponsors: ${sponsors.map((sponsor) => sponsor.name).join(", ")}`,
@@ -27,6 +46,7 @@ interface SponsorsPageProps {}
 
 const SponsorsPage: React.FC<SponsorsPageProps> = async ({}) => {
     const sponsors = await db.sponsor.findMany({});
+    sponsors.push(...(SPON_DATA as Sponsor[]));
 
     return (
         <>
@@ -34,7 +54,7 @@ const SponsorsPage: React.FC<SponsorsPageProps> = async ({}) => {
             <div className=" flex flex-wrap items-center justify-center gap-5 md:gap-10">
                 {sponsors.map((sponsor) => (
                     <SponsorCard
-                        key={sponsor.id}
+                        key={sponsor.name}
                         name={sponsor.name}
                         image={sponsor.image}
                         link={sponsor.link}
