@@ -52,6 +52,7 @@ export async function generateMetadata({
 const EventDetailPage: React.FC<EventDetailPageProps> = async ({ params }) => {
     const { eventId } = params;
     const event = await db.event.findUnique({ where: { id: eventId } });
+    console.log(event?.registrationLink);
     // const startTime = new Date(event!.startTime);
     // const endTime = new Date(event!.endTime);
 
@@ -122,6 +123,11 @@ const EventDetailPage: React.FC<EventDetailPageProps> = async ({ params }) => {
                         </div>
                         <div className="flex flex-wrap items-center justify-center gap-10">
                             <EventActionButtons
+                                registrationLink={
+                                    event?.registrationLink as
+                                        | string
+                                        | undefined
+                                }
                                 submissionLink={
                                     event?.submissionLink as string | undefined
                                 }

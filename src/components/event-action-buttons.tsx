@@ -3,23 +3,25 @@
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { FaBook } from "react-icons/fa";
+import { FaRegPenToSquare } from "react-icons/fa6";
 
 interface EventActionButtonsProps {
     rulebookLink?: string;
-    registerLink?: string;
+    registrationLink?: string;
     submissionLink?: string;
     problemStatementLink?: string;
 }
 export const EventActionButtons: React.FC<EventActionButtonsProps> = ({
     rulebookLink,
-    registerLink,
+    registrationLink,
     submissionLink,
     problemStatementLink,
 }) => {
     const LINKS_DATA = [
         {
             text: "Register",
-            href: registerLink,
+            href: registrationLink,
+            icon: <FaRegPenToSquare />,
             className: "bg-primary",
         },
         {

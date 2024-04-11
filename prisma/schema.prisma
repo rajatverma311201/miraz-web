@@ -68,6 +68,7 @@ model Event {
   tagline              String
   description          String?
   image                String
+  registrationLink     String?
   rulebookLink         String?
   problemStatementLink String?
   submissionLink       String?
