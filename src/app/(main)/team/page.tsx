@@ -17,7 +17,7 @@ const MirazTeamPage: React.FC<MirazTeamPageProps> = async () => {
         <>
             <PageHeading title="Miraz Team" />
 
-            <div className="flex flex-wrap items-center justify-center gap-20 pt-10">
+            <div className="flex flex-wrap items-center justify-center gap-20 py-10 ">
                 {members.map((member) => (
                     <MirazTeamMemberCard
                         key={member.id}

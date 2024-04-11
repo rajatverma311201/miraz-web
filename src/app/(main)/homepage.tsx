@@ -7,6 +7,7 @@ import { AboutContent } from "@/components/about-content";
 import Link from "next/link";
 import Image from "next/image";
 import { PageHeading } from "@/components/page-heading";
+import background from "@/../public/background.jpg";
 
 const arr = ["Events", "Sponsors", "Team"];
 const len = arr.length;
@@ -19,22 +20,34 @@ export default function HomePage() {
     ];
 
     return (
-        <main>
-            <div className="lg:h-screen lg:snap-y lg:snap-mandatory lg:overflow-y-scroll">
+        <>
+            <Image
+                className=" -z-10  opacity-25"
+                alt="Background"
+                src={background}
+                placeholder="blur"
+                quality={100}
+                fill
+                sizes="100vw"
+                style={{
+                    objectFit: "cover",
+                }}
+            />
+            <main className="overflow-y-scroll lg:h-screen">
+                {/* <div className=""> */}
                 {sections.map((section, index) => (
                     <SectionWrapper key={index}>{section}</SectionWrapper>
                 ))}
-            </div>
-        </main>
+                {/* </div> */}
+            </main>
+        </>
     );
 }
 
 const SectionWrapper = ({ children }: { children: React.ReactNode }) => {
     return (
         <>
-            <div className="grid min-h-screen lg:h-screen lg:snap-center">
-                {children}
-            </div>
+            <div className="grid min-h-screen lg:h-screen">{children}</div>
         </>
     );
 };
