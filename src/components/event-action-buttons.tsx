@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 import { FaBook } from "react-icons/fa";
 import { FaRegPenToSquare } from "react-icons/fa6";
+import { MdUploadFile } from "react-icons/md";
 
 interface EventActionButtonsProps {
     rulebookLink?: string;
@@ -33,6 +34,7 @@ export const EventActionButtons: React.FC<EventActionButtonsProps> = ({
         {
             text: "Submission",
             href: submissionLink,
+            icon: <MdUploadFile />,
             className: "bg-primaryGreen",
         },
         {
