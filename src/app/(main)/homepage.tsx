@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { AboutContent } from "@/components/about-content";
 import Link from "next/link";
 import Image from "next/image";
+import { PageHeading } from "@/components/page-heading";
 
 const arr = ["Events", "Sponsors", "Team"];
 const len = arr.length;
@@ -13,7 +14,7 @@ const len = arr.length;
 export default function HomePage() {
     const sections = [
         <HomeSection1 key={1} />,
-        // <HomeSection3 key={3} />,
+        <HomeSection3 key={3} />,
         <HomeSection2 key={2} />,
     ];
 
@@ -95,7 +96,7 @@ const HomeSection1 = () => {
                             height={100}
                             width={100}
                             alt={data.alt}
-                            className=" h-20 w-20  rounded-full border-2 "
+                            className="h-16 w-16 rounded-full border-2  md:h-24 md:w-24 "
                         />
                     );
                 })}
@@ -145,21 +146,18 @@ const HomeSection1 = () => {
 const HomeSection3 = () => {
     return (
         <>
-            <div className="my-10 flex flex-wrap gap-5 px-5 md:gap-10">
+            <PageHeading title="Teasers" className="text-white" />
+            <div className="my-10 flex flex-wrap justify-center gap-5 px-5 md:gap-10">
                 <iframe
-                    src="https://drive.google.com/file/d/1AHpWVpSjkrGglWBeNcHy-tk2FzfeQBe3/preview"
-                    // width="400"
-                    // height="600"
+                    src="https://drive.google.com/file/d/1ewYnovDaMHZfo5itVZGuCc0zIhql5u2N/preview"
                     allow="autoplay"
-                    className=" h-[500px] w-full sm:h-[600px] sm:w-[400px]"
+                    className="rounded-xl md:h-[40vh] md:w-[40vw]"
                 ></iframe>
 
                 <iframe
                     src="https://drive.google.com/file/d/1dn6IXgkCq2ZEZTZU_GiKidnyrTod2ZJ_/preview"
-                    // width="400"
-                    // height="600"
                     allow="autoplay"
-                    className=" h-[500px] w-full sm:h-[600px] sm:w-[400px]"
+                    className="rounded-xl md:h-[40vh] md:w-[40vw]"
                 ></iframe>
             </div>
         </>
