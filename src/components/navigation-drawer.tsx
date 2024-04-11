@@ -96,11 +96,11 @@ const DATA = [
         description: "View all events",
         href: "/events",
     },
-    {
-        title: "Keytalks",
-        description: "View all keytalks",
-        href: "/keytalks",
-    },
+    // {
+    //     title: "Keytalks",
+    //     description: "View all keytalks",
+    //     href: "/keytalks",
+    // },
     {
         title: "Sponsors",
         description: "View all sponsors",
