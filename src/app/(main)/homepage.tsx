@@ -34,7 +34,7 @@ export default function HomePage() {
                     objectFit: "cover",
                 }}
             />
-            <main className="overflow-y-scroll scroll-smooth lg:h-screen">
+            <main className="overflow-y-scroll scroll-smooth lg:h-svh">
                 {sections.map((section, index) => (
                     <SectionWrapper key={index}>{section}</SectionWrapper>
                 ))}
@@ -98,7 +98,7 @@ const HomeSection1 = () => {
     ];
 
     return (
-        <div className="relative flex h-screen flex-col items-center justify-center">
+        <div className="relative flex h-svh flex-col items-center justify-center">
             <Image
                 className="absolute left-6 top-6 w-1/4 md:w-auto"
                 src="/logo-1.png"
