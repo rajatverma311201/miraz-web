@@ -11,7 +11,7 @@ export const NumbersCardList: React.FC<NumbersCardListProps> = ({}) => {
             <NumberCard number="10k" title="Participation" />
             <NumberCard number={400} title="Colleges" />
             <NumberCard number="1M" title="Reach" />
-            <NumberCard number={30} title="Events" />
+            <NumberCard number={50} title="Events" />
         </div>
     );
 };
