@@ -8,6 +8,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { PageHeading } from "@/components/page-heading";
 import background from "@/../public/background.jpg";
+import { IoIosArrowDown } from "react-icons/io";
 
 const arr = ["Events", "Sponsors", "Team"];
 const len = arr.length;
@@ -33,12 +34,10 @@ export default function HomePage() {
                     objectFit: "cover",
                 }}
             />
-            <main className="overflow-y-scroll lg:h-screen">
-                {/* <div className=""> */}
+            <main className="overflow-y-scroll scroll-smooth lg:h-screen">
                 {sections.map((section, index) => (
                     <SectionWrapper key={index}>{section}</SectionWrapper>
                 ))}
-                {/* </div> */}
             </main>
         </>
     );
@@ -47,7 +46,7 @@ export default function HomePage() {
 const SectionWrapper = ({ children }: { children: React.ReactNode }) => {
     return (
         <>
-            <div className="grid min-h-screen lg:h-screen">{children}</div>
+            <div>{children}</div>
         </>
     );
 };
@@ -99,15 +98,15 @@ const HomeSection1 = () => {
     ];
 
     return (
-        <div className="min-h-screen">
+        <div className="relative flex h-screen flex-col items-center justify-center">
             <Image
-                className="hidden md:m-8 md:inline"
+                className="absolute left-6 top-6 w-1/4 md:w-auto"
                 src="/logo-1.png"
                 height={150}
                 width={150}
                 alt="Miraz Logo"
             />
-            <div className="mt-20 flex flex-wrap justify-center gap-5 md:mt-0 md:gap-10">
+            {/* <div className="flex justify-center gap-5 md:gap-10">
                 {LOGO_DATA.map((data, index) => {
                     return (
                         <Image
@@ -120,46 +119,44 @@ const HomeSection1 = () => {
                         />
                     );
                 })}
-            </div>
+            </div> */}
 
-            <div className="mt-24 lg:mt-12">
-                <h1
-                    className={
-                        " mb-10 text-center text-7xl font-medium md:text-9xl lg:text-[10rem]"
-                    }
-                >
-                    Miraz
-                </h1>
+            <h1 className="mb-10 text-7xl font-medium md:text-9xl lg:text-[10rem]">
+                Miraz
+            </h1>
 
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.7 }}
-                    animate={{
-                        opacity: [0, 1],
-                        scale: [0.7, 1],
-                    }}
-                    transition={{ scale: { duration: 0.5 } }}
-                    className="flex flex-col items-center justify-center space-y-4"
+            <motion.div
+                initial={{ opacity: 0, scale: 0.7 }}
+                animate={{
+                    opacity: [0, 1],
+                    scale: [0.7, 1],
+                }}
+                transition={{ scale: { duration: 0.5 } }}
+                className="flex flex-col items-center justify-center space-y-4"
+            >
+                <Link
+                    href={`/${arr.at(count - 1)!.toLowerCase()}`}
+                    className="text-xl opacity-50  md:text-2xl"
                 >
-                    <Link
-                        href={`/${arr.at(count - 1)!.toLowerCase()}`}
-                        className="text-xl opacity-50  md:text-2xl"
-                    >
-                        {arr.at(count - 1)}
-                    </Link>
-                    <Link
-                        href={`/${arr.at(count)!.toLowerCase()}`}
-                        className="text-3xl md:text-5xl"
-                    >
-                        {arr.at(count)}
-                    </Link>
-                    <Link
-                        href={`/${arr.at((count + 1) % len)!.toLowerCase()}`}
-                        className="text-xl opacity-50 md:text-2xl"
-                    >
-                        {arr.at((count + 1) % len)}
-                    </Link>
-                </motion.div>
-            </div>
+                    {arr.at(count - 1)}
+                </Link>
+                <Link
+                    href={`/${arr.at(count)!.toLowerCase()}`}
+                    className="text-3xl md:text-5xl"
+                >
+                    {arr.at(count)}
+                </Link>
+                <Link
+                    href={`/${arr.at((count + 1) % len)!.toLowerCase()}`}
+                    className="text-xl opacity-50 md:text-2xl"
+                >
+                    {arr.at((count + 1) % len)}
+                </Link>
+            </motion.div>
+
+            <a href="#proEvent" className="absolute bottom-8">
+                <IoIosArrowDown className="mx-auto" />
+            </a>
         </div>
     );
 };
@@ -167,8 +164,18 @@ const HomeSection1 = () => {
 const HomeSection3 = () => {
     return (
         <>
-            <PageHeading title="Teasers" className="text-white" />
-            <div className="my-10 flex flex-wrap justify-center gap-5 px-5 md:gap-10">
+            <div id="proEvent">
+                <PageHeading title="Pro Event" className="text-white" />
+            </div>
+            <Image
+                src="/proShowComedy.jpeg"
+                alt="Pro Event"
+                width={400}
+                height={400}
+                className="mx-auto w-9/12 rounded-md pb-12 md:w-[30%]"
+            />
+            <PageHeading title="Teasers" className="h-min text-white" />
+            <div className="mb-10 flex flex-wrap justify-center gap-5 px-5 md:gap-10">
                 <iframe
                     src="https://drive.google.com/file/d/1ewYnovDaMHZfo5itVZGuCc0zIhql5u2N/preview"
                     allow="autoplay"
