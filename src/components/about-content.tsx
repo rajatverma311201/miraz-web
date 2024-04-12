@@ -1,4 +1,5 @@
 import { NumbersCardList } from "@/components/numbers-card-list";
+import { PageHeading } from "@/components/page-heading";
 
 interface AboutContentProps {}
 
@@ -6,10 +7,8 @@ export const AboutContent: React.FC<AboutContentProps> = ({}) => {
     return (
         <>
             <div className="p-4 md:p-6 lg:p-10">
-                <h1 className="text-center text-5xl  font-bold uppercase text-primary">
-                    About Us
-                </h1>
-                <div className="my-10 px-5  text-lg  font-light sm:text-xl md:px-16 lg:px-40">
+                <PageHeading title="About Us" />
+                <div className="mb-10 px-5 text-lg  font-light sm:text-xl md:px-16 lg:px-40">
                     <p className=" font-light text-muted-foreground">
                         Hit up those controllers, let that retro buzz fill the
                         room, step in through the valleys of those screens and
