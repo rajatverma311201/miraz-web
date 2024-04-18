@@ -1,0 +1,194 @@
+[
+    {
+        "_id": {
+            "$oid": "6617ccf89f4222adb54288f7"
+        },
+        "name": "Ease My Trip",
+        "type": "Platinum Partner",
+        "image": "/sponsors/easemytrip.jpg",
+        "link": "https://www.easemytrip.com/"
+    },
+    {
+        "_id": {
+            "$oid": "6617ccf89f4222adb5428905"
+        },
+        "name": "Roostoo",
+        "type": "Crypto Partner",
+        "image": "/sponsors/roostoo.png",
+        "link": "https://www.roostoo.com/"
+    },
+    {
+        "_id": "sjvn",
+        "name": "SJVN Limited",
+        "type": "Gold Sponsor",
+        "image": "/sponsors/sjvn.png",
+        "link": "https://sjvn.nic.in/"
+    },
+    {
+        "_id": {
+            "$oid": "6617ccf89f4222adb54288fe"
+        },
+        "name": "Datamatics",
+        "type": "Bronze sponsor",
+        "image": "/sponsors/datamatics.png",
+        "link": "https://www.datamatics.com/"
+    },
+    {
+        "_id": {
+            "$oid": "6617ccf89f4222adb54288f6"
+        },
+        "name": "La Pino'z Pizza",
+        "type": "Food partner",
+        "image": "/sponsors/lapinoz.png",
+        "link": "https://lapinozpizza.in/"
+    },
+    {
+        "_id": {
+            "$oid": "6617ccf89f4222adb5428907"
+        },
+        "name": "IMS learning",
+        "type": "Webinar Partner",
+        "image": "/sponsors/ims.png",
+        "link": "https://www.imsindia.com/"
+    },
+    {
+        "_id": {
+            "$oid": "6617ccf89f4222adb5428906"
+        },
+        "name": "Vision IAS",
+        "type": "UPSC Partner",
+        "image": "/sponsors/vision.png",
+        "link": "https://visionias.in/"
+    },
+    {
+        "_id": {
+            "$oid": "6617ccf89f4222adb5428902"
+        },
+        "name": "Stock Edge",
+        "type": "Fintech Partner",
+        "image": "/sponsors/stockedge.png",
+        "link": "https://stockedge.com/"
+    },
+    {
+        "_id": {
+            "$oid": "6617ccf89f4222adb54288f8"
+        },
+        "name": "Giani",
+        "type": "Food partner",
+        "image": "/sponsors/giani.jpeg",
+        "link": "https://www.gianisicecream.com/"
+    },
+    {
+        "_id": {
+            "$oid": "6617ccf89f4222adb54288f9"
+        },
+        "name": "Reliance Trends",
+        "type": "Fashion event sponsor",
+        "image": "/sponsors/trends.png",
+        "link": "https://reliancetrends.com/"
+    },
+    {
+        "_id": {
+            "$oid": "6617ccf89f4222adb5428908"
+        },
+        "name": "Qelica Mouth Spray",
+        "type": "Oral Care Partner",
+        "image": "/sponsors/qelica.png",
+        "link": ""
+    },
+    {
+        "_id": {
+            "$oid": "6617ccf89f4222adb54288fa"
+        },
+        "name": "Devfolio",
+        "type": "Frosthack Event Sponsor",
+        "image": "/sponsors/devfolio.png",
+        "link": "https://devfolio.co/"
+    },
+    {
+        "id": "ihoik",
+        "name": "IHOIK",
+        "type": "Digital Media Partner",
+        "image": "/sponsors/ihoik.png",
+        "link": "https://www.ihoik.com/"
+    },
+    {
+        "id": "abhi-bus",
+        "name": "Abhi Bus",
+        "type": "Travel Partner",
+        "image": "/sponsors/abhi-bus.png",
+        "link": "https://www.abhibus.com/"
+    },
+    {
+        "_id": {
+            "$oid": "6617ccf89f4222adb54288ff"
+        },
+        "name": "PW Skills",
+        "type": "Skills Partner",
+        "image": "/sponsors/pw.webp",
+        "link": "https://pwskills.com/"
+    },
+    {
+        "_id": {
+            "$oid": "6617ccf89f4222adb54288fc"
+        },
+        "name": "Valorant",
+        "type": "Valorant event Sponsor",
+        "image": "/sponsors/valo.png",
+        "link": "https://playvalorant.com/"
+    },
+    {
+        "_id": {
+            "$oid": "6617ccf89f4222adb5428909"
+        },
+        "name": "Top one percent",
+        "type": "Education Partner",
+        "image": "/sponsors/oneperc.avif",
+        "link": "https://www.top-one-percent.com/"
+    },
+    {
+        "_id": {
+            "$oid": "6617ccf89f4222adb5428904"
+        },
+        "name": "Slick",
+        "type": "College community partner",
+        "image": "/sponsors/slick.png",
+        "link": "https://slickapp.co/"
+    },
+
+    {
+        "_id": "halchall",
+        "name": "Halchall",
+        "type": "Media Partner",
+        "image": "/sponsors/halchall.png",
+        "link": "https://halchall.com/"
+    },
+    {
+        "_id": {
+            "$oid": "6617ccf89f4222adb5428903"
+        },
+        "name": "Hover Robotix",
+        "type": "Robotics Partner",
+        "image": "/sponsors/hover.png",
+        "link": "https://hoverrobotix.com/"
+    },
+    {
+        "_id": {
+            "$oid": "6617ccf89f4222adb5428900"
+        },
+        "name": "Focus Elixir",
+        "type": "Beverage partner",
+        "image": "/sponsors/focus.png",
+        "link": "https://drinkelixir.in/"
+    },
+
+    {
+        "_id": {
+            "$oid": "6617ccf89f4222adb54288fb"
+        },
+        "name": "Student Gymkhana IIT Mandi",
+        "type": "",
+        "image": "/sponsors/gymkhana.png",
+        "link": "https://students.iitmandi.ac.in/main/"
+    }
+]
