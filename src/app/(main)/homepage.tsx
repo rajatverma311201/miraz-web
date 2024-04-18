@@ -167,13 +167,23 @@ const HomeSection3 = () => {
             <div id="proEvent">
                 <PageHeading title="Pro Event" className="text-white" />
             </div>
-            <Image
-                src="/proShowComedy.jpeg"
-                alt="Pro Event"
-                width={400}
-                height={400}
-                className="mx-auto w-9/12 rounded-md pb-12 md:w-[30%]"
-            />
+            <div className="flex justify-center gap-20">
+                <Image
+                    src="/proShowComedy.jpeg"
+                    alt="ProEvent Comedy"
+                    width={400}
+                    height={400}
+                    className="w-9/12 rounded-md pb-12 md:w-[30%]"
+                />
+                <Image
+                    src="/musicalNight.jpeg"
+                    alt="Musical Night"
+                    width={400}
+                    height={400}
+                    className="w-9/12 rounded-md pb-12 md:w-[35%]"
+                />
+            </div>
+
             <PageHeading title="Teasers" className="h-min text-white" />
             <div className="mb-10 flex flex-wrap justify-center gap-5 px-5 md:gap-10">
                 <iframe
